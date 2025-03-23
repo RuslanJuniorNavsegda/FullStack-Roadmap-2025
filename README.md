@@ -1,53 +1,59 @@
-# Fullstack Developer Roadmap 2025
+# Дорожная карта Фулстек-разработчика 2025
 
-A comprehensive, step-by-step roadmap to become a fullstack web developer in 2025.
+![Превью дорожной карты](assets/images/roadmap-preview.png)
 
-## Features
+## Описание
 
-- **Detailed Learning Path**: Structured progression from beginner to advanced
-- **Day-by-Day Timeline**: 12-week journey with specific learning objectives
-- **Practice Projects**: Real-world projects to build your portfolio
-- **Curated Resources**: Links to documentation, tutorials, and courses
-- **Self-contained HTML**: No complex setup required
+Полное руководство по освоению навыков фулстек-разработчика с подробным учебным планом, проектами и ресурсами для начинающих и опытных разработчиков.
 
-## Getting Started
+## Особенности
 
-### Prerequisites
+- **Детальный путь обучения**: Структурированные шаги от основ до продвинутых техник
+- **Интерактивная дорожная карта**: Визуально отслеживайте свой прогресс
+- **Практические проекты**: Укрепляйте знания через реальные проекты
+- **Ориентиры по вехам**: Четкие точки проверки для оценки прогресса
+- **Ресурсы для обучения**: Специально подобранные учебные материалы
+- **Расписание день за днём**: 12-недельный детальный план обучения
 
-- Node.js installed (download from [nodejs.org](https://nodejs.org/))
-- A modern web browser
+## Начало работы
 
-### Running the Roadmap
+### Запуск дорожной карты
 
-1. Double-click the `start-roadmap.bat` file (Windows)
-2. Your browser will automatically open to `http://localhost:8000/simplified-roadmap.html`
-3. Navigate through the roadmap sections
-4. Press Ctrl+C in the terminal when you're done to stop the server
+1. Клонируйте репозиторий:
 
-## Roadmap Structure
+   ```bash
+   git clone https://github.com/yourusername/fullstack-roadmap-2025.git
+   ```
 
-- **Beginner Level**: HTML, CSS, JavaScript fundamentals
-- **Intermediate Level**: Frontend frameworks, responsive design
-- **Mid-Level**: Backend development with Node.js
-- **Advanced Level**: Full-stack applications, deployment, DevOps
-- **Day-by-Day Timeline**: Detailed 12-week learning journey
+2. Откройте файл `start-roadmap.bat` (Windows) или:
 
-## Navigation Tips
+   ```bash
+   python -m http.server 8000
+   ```
 
-- Click on section headers to expand/collapse content
-- Each day in the timeline includes:
-  - Topics to learn
-  - Practice project ideas
-  - Recommended learning resources
+   для запуска через Python.
 
-## Contributing
+3. Откройте в браузере: `http://localhost:8000`
 
-Feel free to submit pull requests with additional resources, updated content, or bug fixes.
+### Предварительные требования
 
-## License
+- Современный веб-браузер (Chrome, Firefox, Edge)
+- Базовые знания о веб-разработке (необязательно, но полезно)
 
-This project is open source and available under the [MIT License](LICENSE).
+## Структура дорожной карты
 
----
+Дорожная карта разделена на следующие основные разделы:
 
-Created with ❤️ for aspiring developers
+- **Уровень для начинающих**: HTML, CSS, JavaScript основы
+- **Средний уровень**: Фреймворки, API, продвинутый JavaScript
+- **Продвинутый уровень**: Backend, базы данных, развертывание
+- **Расписание день за днём**: 12-недельный подробный план обучения
+- **Проекты**: Портфолио проектов для освоения навыков
+- **Ресурсы**: Книги, курсы, видео и другие обучающие материалы
+
+## Советы по навигации
+
+- Используйте верхнюю навигацию для перехода между разделами
+- Отмечайте завершенные вехи для отслеживания прогресса
+- Проверяйте свой общий прогресс в панели статистики
+- Загрузите дорожную карту для использования офлайн

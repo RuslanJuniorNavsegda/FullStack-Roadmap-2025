@@ -223,7 +223,11 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
         pointer-events: none;
       }
 
@@ -323,7 +327,7 @@
 
       /* Section styles */
       .section {
-        padding: 60px 0;
+        padding: 40px 0; /* Reduced from 60px */
         transition: background-color 0.3s ease;
       }
 
@@ -355,13 +359,13 @@
         background-color: var(--color-timeline-bg);
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
-        padding: 30px;
+        padding: 20px; /* Reduced from 30px */
         margin-top: 30px;
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
       }
 
       .roadmap-section {
-        margin-bottom: 40px;
+        margin-bottom: 30px; /* Reduced from 40px */
       }
 
       .roadmap-section:last-child {
@@ -379,12 +383,13 @@
       }
 
       .roadmap-item {
-        margin-bottom: 30px;
-        padding: 20px;
+        margin-bottom: 20px; /* Reduced from 30px */
+        padding: 15px; /* Reduced from 20px */
         background-color: var(--color-item-bg);
         border-radius: var(--border-radius);
         box-shadow: 0 2px 5px var(--color-shadow);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease,
+          transform 0.3s ease;
       }
 
       .roadmap-item:hover {
@@ -424,7 +429,7 @@
       }
 
       .roadmap-item.expanded .roadmap-item-content {
-        max-height: 1000px;
+        max-height: 2000px; /* Increased from 1000px */
       }
 
       .skills-title {
@@ -459,8 +464,8 @@
       }
 
       .milestone {
-        margin-top: 20px;
-        padding: 15px;
+        margin-top: 15px; /* Reduced from 20px */
+        padding: 10px; /* Reduced from 15px */
         background-color: rgba(var(--color-primary-rgb), 0.05);
         border-left: 4px solid var(--color-primary);
         border-radius: 0 8px 8px 0;
@@ -485,7 +490,7 @@
         position: relative;
         max-width: 1000px;
         margin: 0 auto;
-        padding: 40px 0;
+        padding: 20px 0; /* Reduced from 40px */
       }
 
       .timeline::before {
@@ -502,7 +507,7 @@
 
       .timeline-section {
         position: relative;
-        margin-bottom: 60px;
+        margin-bottom: 40px; /* Reduced from 60px */
         padding-left: 60px;
       }
 
@@ -512,7 +517,7 @@
 
       .timeline-header {
         position: relative;
-        margin-bottom: 30px;
+        margin-bottom: 20px; /* Reduced from 30px */
         background-color: var(--color-primary);
         color: white;
         padding: 15px 20px;
@@ -544,12 +549,13 @@
 
       .timeline-day {
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 15px; /* Reduced from 20px */
         background-color: var(--color-timeline-bg);
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
         overflow: hidden;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease,
+          transform 0.3s ease;
       }
 
       .timeline-day:hover {
@@ -595,7 +601,7 @@
       }
 
       .timeline-day.expanded .day-content {
-        max-height: 1000px;
+        max-height: 2000px; /* Increased from 1000px */
       }
 
       .day-content p {
@@ -731,7 +737,7 @@
       :root {
         --color-primary-rgb: 63, 81, 181;
       }
-      
+
       [data-theme="dark"] {
         --color-primary-rgb: 92, 107, 192;
       }
@@ -741,7 +747,7 @@
         .nav-wrapper {
           gap: 10px;
         }
-        
+
         .nav {
           display: none;
           flex-direction: column;
@@ -753,11 +759,11 @@
           box-shadow: var(--box-shadow);
           padding: 10px 0;
         }
-        
+
         .nav.active {
           display: flex;
         }
-        
+
         .mobile-menu-toggle {
           display: block;
           font-size: 24px;
@@ -802,7 +808,13 @@
       <div class="container">
         <h1 class="logo">Путь Фулстек-Разработчика</h1>
         <div class="nav-wrapper">
-          <button class="mobile-menu-toggle" aria-label="Меню" style="display: none;">☰</button>
+          <button
+            class="mobile-menu-toggle"
+            aria-label="Меню"
+            style="display: none"
+          >
+            ☰
+          </button>
           <nav class="nav">
             <a href="#home" class="nav-item active">Главная</a>
             <a href="#beginner" class="nav-item">Начинающий</a>
@@ -811,7 +823,7 @@
             <a href="#advanced-roadmap" class="nav-item">День за Днём</a>
           </nav>
           <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle">
+            <input type="checkbox" id="theme-toggle" />
             <span class="theme-switch-label">
               <span class="theme-icon theme-icon-light">☀️</span>
               <span class="theme-icon theme-icon-dark">🌙</span>
@@ -1089,113 +1101,125 @@
     <section id="intermediate" class="section">
       <div class="container">
         <div class="section-header">
-          <h2>Intermediate Level</h2>
-          <p>Expand your skills with more advanced concepts</p>
+          <h2>Средний Уровень</h2>
+          <p>Расширьте свои навыки более продвинутыми концепциями</p>
         </div>
 
         <div class="roadmap-content">
           <div class="roadmap-section">
-            <h2 class="roadmap-section-title">Frontend Development</h2>
+            <h2 class="roadmap-section-title">Фронтенд Разработка</h2>
 
             <div class="roadmap-item">
-              <h3>Advanced JavaScript</h3>
+              <h3>Продвинутый JavaScript</h3>
               <div class="roadmap-item-content">
                 <p>
-                  Deepen your JavaScript knowledge with more complex concepts.
+                  Углубите свои знания JavaScript более сложными концепциями.
                 </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
                   <ul class="skills-list">
                     <li>
-                      ES6+ features (arrow functions, destructuring, etc.)
+                      Возможности ES6+ (стрелочные функции, деструктуризация и
+                      т.д.)
                     </li>
-                    <li>Asynchronous JavaScript (Promises, async/await)</li>
-                    <li>Fetch API and AJAX</li>
-                    <li>Local storage and session storage</li>
-                    <li>JavaScript modules</li>
-                    <li>Error handling</li>
+                    <li>Асинхронный JavaScript (Промисы, async/await)</li>
+                    <li>Fetch API и AJAX</li>
+                    <li>Локальное хранилище и сессионное хранилище</li>
+                    <li>JavaScript модули</li>
+                    <li>Обработка ошибок</li>
                   </ul>
                 </div>
                 <div class="milestone">
-                  <h4>Project Milestone:</h4>
+                  <h4>Учебный проект:</h4>
                   <p>
-                    Build a weather app that fetches and displays data from an
-                    API
+                    Создайте приложение погоды, которое получает и отображает
+                    данные из API
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>JavaScript Deep Dive</h3>
+              <h3>Глубокое изучение JavaScript</h3>
               <div class="roadmap-item-content">
                 <p>
-                  Master advanced JavaScript concepts for professional
-                  development.
+                  Освойте продвинутые концепции JavaScript для профессиональной
+                  разработки.
                 </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <h4 class="skills-title">Пошаговое обучение:</h4>
                   <ol class="skills-list">
-                    <li>Closures and lexical scope</li>
-                    <li>Prototypes and inheritance</li>
-                    <li>The 'this' keyword and execution context</li>
-                    <li>Higher-order functions and functional programming</li>
-                    <li>Design patterns in JavaScript</li>
-                    <li>Performance optimization techniques</li>
+                    <li>Замыкания и лексическая область видимости</li>
+                    <li>Прототипы и наследование</li>
+                    <li>Ключевое слово 'this' и контекст выполнения</li>
+                    <li>
+                      Функции высшего порядка и функциональное программирование
+                    </li>
+                    <li>Шаблоны проектирования в JavaScript</li>
+                    <li>Методы оптимизации производительности</li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
+                  <h4>Применение в проекте:</h4>
                   <p>
-                    Build a component-based UI library with reusable JavaScript
-                    modules
+                    Создайте компонентную UI библиотеку с многоразовыми
+                    JavaScript модулями
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Modern JavaScript Tools</h3>
+              <h3>Современные инструменты JavaScript</h3>
               <div class="roadmap-item-content">
-                <p>Learn essential tools in the modern JavaScript ecosystem.</p>
+                <p>
+                  Изучите необходимые инструменты в современной JavaScript
+                  экосистеме.
+                </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <h4 class="skills-title">Пошаговое обучение:</h4>
                   <ol class="skills-list">
-                    <li>Setting up a build system with NPM scripts</li>
-                    <li>Module bundling with Webpack or Vite</li>
-                    <li>Transpiling code with Babel</li>
-                    <li>Linting with ESLint</li>
-                    <li>Testing with Jest or Mocha</li>
-                    <li>Understanding package.json and dependencies</li>
+                    <li>
+                      Настройка системы сборки с использованием NPM скриптов
+                    </li>
+                    <li>Сборка модулей с Webpack или Vite</li>
+                    <li>Транспиляция кода с Babel</li>
+                    <li>Линтинг с ESLint</li>
+                    <li>Тестирование с Jest или Mocha</li>
+                    <li>Понимание package.json и зависимостей</li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
+                  <h4>Применение в проекте:</h4>
                   <p>
-                    Set up a complete frontend project with professional tooling
+                    Настройте полноценный фронтенд проект с профессиональными
+                    инструментами
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>CSS Frameworks & Preprocessors</h3>
+              <h3>CSS Фреймворки и Препроцессоры</h3>
               <div class="roadmap-item-content">
-                <p>Use tools to make CSS development more efficient.</p>
+                <p>
+                  Используйте инструменты для более эффективной разработки CSS.
+                </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
                   <ul class="skills-list">
-                    <li>Bootstrap or Tailwind CSS</li>
+                    <li>Bootstrap или Tailwind CSS</li>
                     <li>SCSS/SASS</li>
-                    <li>CSS custom properties (variables)</li>
-                    <li>Advanced responsive design techniques</li>
-                    <li>CSS animations and transitions</li>
+                    <li>Пользовательские CSS свойства (переменные)</li>
+                    <li>Продвинутые техники адаптивного дизайна</li>
+                    <li>CSS анимации и переходы</li>
                   </ul>
                 </div>
                 <div class="milestone">
-                  <h4>Project Milestone:</h4>
+                  <h4>Учебный проект:</h4>
                   <p>
-                    Rebuild your portfolio using a CSS framework or preprocessor
+                    Перестройте своё портфолио с использованием CSS фреймворка
+                    или препроцессора
                   </p>
                 </div>
               </div>
@@ -1203,73 +1227,75 @@
           </div>
 
           <div class="roadmap-section">
-            <h2 class="roadmap-section-title">Backend Basics</h2>
+            <h2 class="roadmap-section-title">Основы Backend-разработки</h2>
 
             <div class="roadmap-item">
-              <h3>Introduction to Backend</h3>
+              <h3>Введение в Backend</h3>
               <div class="roadmap-item-content">
-                <p>Learn the fundamentals of server-side programming.</p>
+                <p>Изучите основы серверного программирования.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
                   <ul class="skills-list">
-                    <li>HTTP protocol basics</li>
-                    <li>Server-side vs. client-side</li>
-                    <li>Introduction to Node.js</li>
-                    <li>Basic routing with Express.js</li>
-                    <li>RESTful API concepts</li>
-                    <li>JSON data format</li>
+                    <li>Основы HTTP протокола</li>
+                    <li>Серверная vs. клиентская разработка</li>
+                    <li>Введение в Node.js</li>
+                    <li>Основы маршрутизации с Express.js</li>
+                    <li>Концепции RESTful API</li>
+                    <li>Формат данных JSON</li>
                   </ul>
                 </div>
                 <div class="milestone">
-                  <h4>Project Milestone:</h4>
-                  <p>Create a simple API with Express.js</p>
+                  <h4>Учебный проект:</h4>
+                  <p>Создайте простой API с Express.js</p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Node.js Fundamentals</h3>
+              <h3>Основы Node.js</h3>
               <div class="roadmap-item-content">
-                <p>Build a strong foundation in server-side JavaScript.</p>
+                <p>Создайте прочную основу в серверном JavaScript.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <h4 class="skills-title">Пошаговое обучение:</h4>
                   <ol class="skills-list">
-                    <li>Understanding Node.js architecture and event loop</li>
-                    <li>Working with core modules (fs, path, http)</li>
-                    <li>Creating a basic web server</li>
-                    <li>Using npm to manage packages</li>
-                    <li>Asynchronous programming with Node.js</li>
-                    <li>Reading and writing files</li>
+                    <li>Понимание архитектуры Node.js и цикла событий</li>
+                    <li>Работа с основными модулями (fs, path, http)</li>
+                    <li>Создание базового веб-сервера</li>
+                    <li>Использование npm для управления пакетами</li>
+                    <li>Асинхронное программирование с Node.js</li>
+                    <li>Чтение и запись файлов</li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
+                  <h4>Применение в проекте:</h4>
                   <p>
-                    Build a command-line application that processes data from
-                    files
+                    Создайте консольное приложение, обрабатывающее данные из
+                    файлов
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Express.js Framework</h3>
+              <h3>Фреймворк Express.js</h3>
               <div class="roadmap-item-content">
-                <p>Master the most popular Node.js web framework.</p>
+                <p>Освойте самый популярный веб-фреймворк для Node.js.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <h4 class="skills-title">Пошаговое обучение:</h4>
                   <ol class="skills-list">
-                    <li>Setting up an Express application</li>
-                    <li>Routing and middleware concepts</li>
-                    <li>Handling different HTTP methods</li>
-                    <li>Request and response objects</li>
-                    <li>Serving static files</li>
-                    <li>Using template engines (EJS, Pug)</li>
+                    <li>Настройка Express-приложения</li>
+                    <li>Концепции маршрутизации и промежуточного ПО</li>
+                    <li>Обработка различных HTTP методов</li>
+                    <li>Объекты запроса и ответа</li>
+                    <li>Обслуживание статических файлов</li>
+                    <li>Использование шаблонизаторов (EJS, Pug)</li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
-                  <p>Create a blog platform with dynamic page rendering</p>
+                  <h4>Применение в проекте:</h4>
+                  <p>
+                    Создайте блог-платформу с динамическим рендерингом страниц
+                  </p>
                 </div>
               </div>
             </div>
@@ -1277,54 +1303,62 @@
 
           <div class="roadmap-section">
             <h2 class="roadmap-section-title">
-              Building Intermediate Projects
+              Создание проектов среднего уровня
             </h2>
 
             <div class="roadmap-item">
               <h3>RESTful API</h3>
               <div class="roadmap-item-content">
-                <p>Design and implement a complete REST API service.</p>
+                <p>Разработайте и реализуйте полноценный REST API сервис.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Project Steps:</h4>
+                  <h4 class="skills-title">Этапы проекта:</h4>
                   <ol class="skills-list">
-                    <li>Design API endpoints following REST principles</li>
-                    <li>Implement CRUD operations</li>
-                    <li>Add validation and error handling</li>
-                    <li>Implement data persistence</li>
-                    <li>Document your API with Swagger/OpenAPI</li>
-                    <li>Test endpoints with Postman or similar tools</li>
+                    <li>Разработайте API-эндпоинты, следуя принципам REST</li>
+                    <li>Реализуйте операции CRUD</li>
+                    <li>Добавьте валидацию и обработку ошибок</li>
+                    <li>Реализуйте сохранение данных</li>
+                    <li>Документируйте ваш API с помощью Swagger/OpenAPI</li>
+                    <li>
+                      Тестируйте эндпоинты с Postman или подобными инструментами
+                    </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Success Criteria:</h4>
+                  <h4>Критерии успеха:</h4>
                   <p>
-                    A fully functional API that handles data operations with
-                    proper error handling
+                    Полностью функциональный API, который обрабатывает операции
+                    с данными с правильной обработкой ошибок
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Dashboard Application</h3>
+              <h3>Приложение-Дашборд</h3>
               <div class="roadmap-item-content">
-                <p>Create a data visualization dashboard using API data.</p>
+                <p>Создайте панель визуализации данных с использованием API.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Project Steps:</h4>
+                  <h4 class="skills-title">Этапы проекта:</h4>
                   <ol class="skills-list">
-                    <li>Design a layout for different data displays</li>
-                    <li>Implement data fetching from one or more APIs</li>
-                    <li>Create chart visualizations with Chart.js or D3.js</li>
-                    <li>Add filtering and sorting capabilities</li>
-                    <li>Implement user settings and preferences</li>
-                    <li>Optimize for performance and responsiveness</li>
+                    <li>
+                      Разработайте макет для различных представлений данных
+                    </li>
+                    <li>
+                      Реализуйте получение данных из одного или нескольких API
+                    </li>
+                    <li>Создайте визуализации диаграмм с Chart.js или D3.js</li>
+                    <li>Добавьте возможности фильтрации и сортировки</li>
+                    <li>
+                      Реализуйте пользовательские настройки и предпочтения
+                    </li>
+                    <li>Оптимизируйте производительность и адаптивность</li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Success Criteria:</h4>
+                  <h4>Критерии успеха:</h4>
                   <p>
-                    A dashboard that displays data in multiple formats with
-                    interactive controls
+                    Дашборд, который отображает данные в различных форматах с
+                    интерактивным управлением
                   </p>
                 </div>
               </div>
@@ -1337,120 +1371,124 @@
     <section id="midlevel" class="section">
       <div class="container">
         <div class="section-header">
-          <h2>Mid-Level Skills</h2>
+          <h2>Продвинутый Уровень</h2>
           <p>
-            Master advanced techniques to become a proficient fullstack
-            developer
+            Освойте продвинутые техники, чтобы стать опытным
+            фулстек-разработчиком
           </p>
         </div>
 
         <div class="roadmap-content">
           <div class="roadmap-section">
-            <h2 class="roadmap-section-title">Frontend Frameworks</h2>
+            <h2 class="roadmap-section-title">Фреймворки Фронтенда</h2>
 
             <div class="roadmap-item">
               <h3>React.js</h3>
               <div class="roadmap-item-content">
-                <p>Learn the most popular frontend JavaScript library.</p>
+                <p>
+                  Изучите самую популярную JavaScript библиотеку для фронтенда.
+                </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
                   <ul class="skills-list">
-                    <li>Components and props</li>
-                    <li>State management</li>
-                    <li>Hooks (useState, useEffect, useContext)</li>
+                    <li>Компоненты и пропсы</li>
+                    <li>Управление состоянием</li>
+                    <li>Хуки (useState, useEffect, useContext)</li>
                     <li>React Router</li>
-                    <li>Forms and controlled components</li>
-                    <li>Context API or Redux</li>
+                    <li>Формы и управляемые компоненты</li>
+                    <li>Context API или Redux</li>
                   </ul>
                 </div>
                 <div class="milestone">
-                  <h4>Project Milestone:</h4>
-                  <p>Build a task management application with React</p>
+                  <h4>Учебный проект:</h4>
+                  <p>Создайте приложение для управления задачами с React</p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>React Step-by-Step</h3>
+              <h3>React Пошагово</h3>
               <div class="roadmap-item-content">
-                <p>Master React through incremental learning stages.</p>
+                <p>Освойте React через инкрементальные этапы обучения.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Learning Path:</h4>
+                  <h4 class="skills-title">Путь обучения:</h4>
                   <ol class="skills-list">
                     <li>
-                      <strong>Stage 1:</strong> React basics - Setting up a
-                      project, JSX, components
+                      <strong>Этап 1:</strong> Основы React - Настройка проекта,
+                      JSX, компоненты
                     </li>
                     <li>
-                      <strong>Stage 2:</strong> State and props - Managing data,
-                      component communication
+                      <strong>Этап 2:</strong> Состояние и пропсы - Управление
+                      данными, коммуникация компонентов
                     </li>
                     <li>
-                      <strong>Stage 3:</strong> Lifecycle and hooks - Function
-                      components, useEffect
+                      <strong>Этап 3:</strong> Жизненный цикл и хуки -
+                      Функциональные компоненты, useEffect
                     </li>
                     <li>
-                      <strong>Stage 4:</strong> Routing - Multiple pages,
-                      navigation, parameters
+                      <strong>Этап 4:</strong> Маршрутизация -
+                      Многостраничность, навигация, параметры
                     </li>
                     <li>
-                      <strong>Stage 5:</strong> Forms and validation - User
-                      input, controlled components
+                      <strong>Этап 5:</strong> Формы и валидация -
+                      Пользовательский ввод, управляемые компоненты
                     </li>
                     <li>
-                      <strong>Stage 6:</strong> API integration - Fetching data,
-                      loading states, error handling
+                      <strong>Этап 6:</strong> Интеграция API - Получение
+                      данных, состояния загрузки, обработка ошибок
                     </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Progressive Projects:</h4>
+                  <h4>Прогрессивные проекты:</h4>
                   <p>
-                    Build a React application that gradually incorporates new
-                    concepts with each stage
+                    Создайте React-приложение, которое постепенно включает новые
+                    концепции на каждом этапе
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>State Management</h3>
+              <h3>Управление состоянием</h3>
               <div class="roadmap-item-content">
-                <p>Learn different approaches to managing application state.</p>
+                <p>
+                  Изучите различные подходы к управлению состоянием приложения.
+                </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Learning Path:</h4>
+                  <h4 class="skills-title">Путь обучения:</h4>
                   <ol class="skills-list">
                     <li>
-                      <strong>Stage 1:</strong> Local component state -
+                      <strong>Этап 1:</strong> Локальное состояние компонентов -
                       useState, useReducer
                     </li>
                     <li>
-                      <strong>Stage 2:</strong> Lifting state up - Parent-child
-                      state sharing
+                      <strong>Этап 2:</strong> Поднятие состояния - Совместное
+                      использование состояния между родителем и потомком
                     </li>
                     <li>
-                      <strong>Stage 3:</strong> Context API - Global state
-                      without additional libraries
+                      <strong>Этап 3:</strong> Context API - Глобальное
+                      состояние без дополнительных библиотек
                     </li>
                     <li>
-                      <strong>Stage 4:</strong> Redux - Actions, reducers,
-                      store, selectors
+                      <strong>Этап 4:</strong> Redux - Действия, редукторы,
+                      хранилище, селекторы
                     </li>
                     <li>
-                      <strong>Stage 5:</strong> Redux Toolkit - Simplified Redux
-                      patterns
+                      <strong>Этап 5:</strong> Redux Toolkit - Упрощенные
+                      паттерны Redux
                     </li>
                     <li>
-                      <strong>Stage 6:</strong> Server state - React Query, SWR,
-                      or Apollo Client
+                      <strong>Этап 6:</strong> Серверное состояние - React
+                      Query, SWR или Apollo Client
                     </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
+                  <h4>Применение в проекте:</h4>
                   <p>
-                    Refactor an existing application to use different state
-                    management approaches
+                    Рефакторинг существующего приложения для использования
+                    различных подходов к управлению состоянием
                   </p>
                 </div>
               </div>
@@ -1458,128 +1496,134 @@
           </div>
 
           <div class="roadmap-section">
-            <h2 class="roadmap-section-title">Backend Development</h2>
+            <h2 class="roadmap-section-title">Backend Разработка</h2>
 
             <div class="roadmap-item">
-              <h3>Node.js & Express.js</h3>
+              <h3>Node.js и Express.js</h3>
               <div class="roadmap-item-content">
-                <p>Build scalable backend applications with JavaScript.</p>
+                <p>Создавайте масштабируемые бэкенд-приложения с JavaScript.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
                   <ul class="skills-list">
-                    <li>Express.js middleware</li>
-                    <li>Authentication and authorization</li>
-                    <li>Error handling and logging</li>
-                    <li>API development</li>
-                    <li>File uploads and storage</li>
-                    <li>Deployment to production</li>
+                    <li>Промежуточное ПО Express.js</li>
+                    <li>Аутентификация и авторизация</li>
+                    <li>Обработка ошибок и логирование</li>
+                    <li>Разработка API</li>
+                    <li>Загрузка файлов и хранение</li>
+                    <li>Развертывание в продакшн</li>
                   </ul>
                 </div>
                 <div class="milestone">
-                  <h4>Project Milestone:</h4>
+                  <h4>Учебный проект:</h4>
                   <p>
-                    Create a RESTful API with authentication for your task
-                    management app
+                    Создайте RESTful API с аутентификацией для вашего приложения
+                    управления задачами
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Authentication & Security</h3>
+              <h3>Аутентификация и Безопасность</h3>
               <div class="roadmap-item-content">
                 <p>
-                  Implement secure user authentication and authorization
-                  systems.
+                  Реализуйте безопасные системы аутентификации и авторизации
+                  пользователей.
                 </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Learning Path:</h4>
+                  <h4 class="skills-title">Путь обучения:</h4>
                   <ol class="skills-list">
                     <li>
-                      <strong>Stage 1:</strong> User registration and login with
-                      bcrypt password hashing
+                      <strong>Этап 1:</strong> Регистрация и вход пользователей
+                      с хешированием паролей bcrypt
                     </li>
                     <li>
-                      <strong>Stage 2:</strong> JWT-based authentication flow
-                    </li>
-                    <li><strong>Stage 3:</strong> Role-based authorization</li>
-                    <li>
-                      <strong>Stage 4:</strong> OAuth and social login
-                      integration
+                      <strong>Этап 2:</strong> Аутентификация на основе
+                      JWT-токенов
                     </li>
                     <li>
-                      <strong>Stage 5:</strong> Security best practices (CSRF,
-                      XSS protection)
+                      <strong>Этап 3:</strong> Авторизация на основе ролей
                     </li>
-                    <li><strong>Stage 6:</strong> Two-factor authentication</li>
+                    <li>
+                      <strong>Этап 4:</strong> Интеграция OAuth и входа через
+                      социальные сети
+                    </li>
+                    <li>
+                      <strong>Этап 5:</strong> Лучшие практики безопасности
+                      (защита от CSRF, XSS)
+                    </li>
+                    <li>
+                      <strong>Этап 6:</strong> Двухфакторная аутентификация
+                    </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
+                  <h4>Применение в проекте:</h4>
                   <p>
-                    Implement a complete authentication system with multiple
-                    login options
+                    Реализуйте полную систему аутентификации с несколькими
+                    вариантами входа
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Databases</h3>
+              <h3>Базы данных</h3>
               <div class="roadmap-item-content">
-                <p>Store and retrieve data effectively.</p>
+                <p>Храните и извлекайте данные эффективно.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
                   <ul class="skills-list">
-                    <li>SQL basics (PostgreSQL or MySQL)</li>
-                    <li>NoSQL concepts (MongoDB)</li>
-                    <li>Database design and relationships</li>
+                    <li>Основы SQL (PostgreSQL или MySQL)</li>
+                    <li>Концепции NoSQL (MongoDB)</li>
+                    <li>Проектирование баз данных и отношения</li>
                     <li>ORM/ODM (Sequelize, Mongoose)</li>
-                    <li>CRUD operations</li>
-                    <li>Data validation and sanitization</li>
+                    <li>Операции CRUD</li>
+                    <li>Валидация и санитизация данных</li>
                   </ul>
                 </div>
                 <div class="milestone">
-                  <h4>Project Milestone:</h4>
+                  <h4>Учебный проект:</h4>
                   <p>
-                    Integrate a database with your task management application
+                    Интегрируйте базу данных с вашим приложением управления
+                    задачами
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Database Mastery</h3>
+              <h3>Мастерство Баз Данных</h3>
               <div class="roadmap-item-content">
-                <p>Deep dive into database technologies and optimization.</p>
+                <p>Глубоко изучите технологии баз данных и оптимизацию.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Learning Path:</h4>
+                  <h4 class="skills-title">Путь обучения:</h4>
                   <ol class="skills-list">
                     <li>
-                      <strong>Stage 1:</strong> Database schema design and
-                      normalization
+                      <strong>Этап 1:</strong> Проектирование схемы базы данных
+                      и нормализация
                     </li>
                     <li>
-                      <strong>Stage 2:</strong> Indexes and query optimization
+                      <strong>Этап 2:</strong> Индексы и оптимизация запросов
                     </li>
                     <li>
-                      <strong>Stage 3:</strong> Transactions and data integrity
+                      <strong>Этап 3:</strong> Транзакции и целостность данных
                     </li>
-                    <li><strong>Stage 4:</strong> Database migrations</li>
+                    <li><strong>Этап 4:</strong> Миграции баз данных</li>
                     <li>
-                      <strong>Stage 5:</strong> Caching strategies (Redis)
+                      <strong>Этап 5:</strong> Стратегии кэширования (Redis)
                     </li>
                     <li>
-                      <strong>Stage 6:</strong> Scaling databases (replication,
-                      sharding)
+                      <strong>Этап 6:</strong> Масштабирование баз данных
+                      (репликация, шардинг)
                     </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Project Application:</h4>
+                  <h4>Применение в проекте:</h4>
                   <p>
-                    Optimize an existing database for performance and implement
-                    advanced features
+                    Оптимизируйте существующую базу данных для повышения
+                    производительности и внедрите продвинутые функции
                   </p>
                 </div>
               </div>
@@ -1587,77 +1631,87 @@
           </div>
 
           <div class="roadmap-section">
-            <h2 class="roadmap-section-title">Advanced Projects</h2>
+            <h2 class="roadmap-section-title">Продвинутые Проекты</h2>
 
             <div class="roadmap-item">
-              <h3>Fullstack E-Commerce Platform</h3>
+              <h3>Фулстек E-Commerce Платформа</h3>
               <div class="roadmap-item-content">
-                <p>Build a complete online store with multiple features.</p>
+                <p>Создайте полный онлайн-магазин с множеством функций.</p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Project Stages:</h4>
+                  <h4 class="skills-title">Этапы проекта:</h4>
                   <ol class="skills-list">
                     <li>
-                      <strong>Stage 1:</strong> Product catalog with filtering
-                      and search
+                      <strong>Этап 1:</strong> Каталог товаров с фильтрацией и
+                      поиском
                     </li>
                     <li>
-                      <strong>Stage 2:</strong> User authentication and profiles
+                      <strong>Этап 2:</strong> Аутентификация пользователей и
+                      профили
                     </li>
                     <li>
-                      <strong>Stage 3:</strong> Shopping cart and checkout
-                      process
+                      <strong>Этап 3:</strong> Корзина покупок и процесс
+                      оформления заказа
                     </li>
                     <li>
-                      <strong>Stage 4:</strong> Payment processing integration
+                      <strong>Этап 4:</strong> Интеграция обработки платежей
                     </li>
                     <li>
-                      <strong>Stage 5:</strong> Order management and history
+                      <strong>Этап 5:</strong> Управление заказами и история
                     </li>
                     <li>
-                      <strong>Stage 6:</strong> Admin dashboard for product
-                      management
+                      <strong>Этап 6:</strong> Панель администратора для
+                      управления товарами
                     </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Success Criteria:</h4>
+                  <h4>Критерии успеха:</h4>
                   <p>
-                    A functional e-commerce site with product browsing, user
-                    accounts, and checkout capabilities
+                    Функциональный сайт электронной коммерции с просмотром
+                    товаров, учетными записями пользователей и возможностью
+                    оформления заказа
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="roadmap-item">
-              <h3>Social Media Application</h3>
+              <h3>Приложение Социальной Сети</h3>
               <div class="roadmap-item-content">
-                <p>Create a platform for user content and interaction.</p>
+                <p>
+                  Создайте платформу для пользовательского контента и
+                  взаимодействия.
+                </p>
                 <div class="skills-container">
-                  <h4 class="skills-title">Project Stages:</h4>
+                  <h4 class="skills-title">Этапы проекта:</h4>
                   <ol class="skills-list">
                     <li>
-                      <strong>Stage 1:</strong> User profiles and authentication
+                      <strong>Этап 1:</strong> Профили пользователей и
+                      аутентификация
                     </li>
                     <li>
-                      <strong>Stage 2:</strong> Post creation and feed display
+                      <strong>Этап 2:</strong> Создание постов и отображение
+                      ленты
                     </li>
                     <li>
-                      <strong>Stage 3:</strong> Comments and interactions
-                      (likes, shares)
+                      <strong>Этап 3:</strong> Комментарии и взаимодействия
+                      (лайки, репосты)
                     </li>
-                    <li><strong>Stage 4:</strong> Friend/follow system</li>
-                    <li><strong>Stage 5:</strong> Real-time notifications</li>
+                    <li><strong>Этап 4:</strong> Система друзей/подписок</li>
                     <li>
-                      <strong>Stage 6:</strong> Direct messaging between users
+                      <strong>Этап 5:</strong> Уведомления в реальном времени
+                    </li>
+                    <li>
+                      <strong>Этап 6:</strong> Личные сообщения между
+                      пользователями
                     </li>
                   </ol>
                 </div>
                 <div class="milestone">
-                  <h4>Success Criteria:</h4>
+                  <h4>Критерии успеха:</h4>
                   <p>
-                    A platform that allows content sharing, social interactions,
-                    and real-time communication
+                    Платформа, которая позволяет делиться контентом, социальными
+                    взаимодействиями и общением в реальном времени
                   </p>
                 </div>
               </div>
@@ -1670,60 +1724,76 @@
     <section id="advanced-roadmap" class="section">
       <div class="container">
         <div class="section-header">
-          <h2>Day-by-Day Roadmap</h2>
-          <p>A 12-week journey to becoming a fullstack developer</p>
+          <h2>Расписание День за Днём</h2>
+          <p>
+            Структурированный 12-недельный путь к освоению фулстек-разработки
+          </p>
         </div>
 
         <div class="timeline">
-          <!-- Week 1: HTML & CSS Fundamentals -->
+          <div class="timeline-controls">
+            <button id="download-roadmap" class="btn btn-outline">
+              Скачать Дорожную Карту
+            </button>
+          </div>
+
+          <div id="progress-overview">
+            <!-- Progress information will be inserted here by JavaScript -->
+          </div>
+
           <div class="timeline-section">
             <div class="timeline-header">
-              <h3>Week 1: HTML & CSS Fundamentals</h3>
+              <h3>Неделя 1: Основы HTML и CSS</h3>
             </div>
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 1-2: HTML Essentials</h4>
+                <h4>День 1-2: Введение в HTML</h4>
               </div>
               <div class="day-content">
                 <p>
-                  Learn the core building blocks of web development starting
-                  with HTML.
+                  Начните свой путь в веб-разработке с изучения HTML - основного
+                  строительного блока веб-сайтов.
                 </p>
-                <ul class="topics-list">
-                  <li>HTML document structure</li>
-                  <li>
-                    Semantic HTML elements (header, nav, main, section, article,
-                    footer)
-                  </li>
-                  <li>Text formatting tags and attributes</li>
-                  <li>Links, images, and media embedding</li>
-                  <li>Tables and forms</li>
-                  <li>HTML validation and best practices</li>
-                </ul>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Структура HTML документа и элементы</li>
+                    <li>HTML5 семантические теги</li>
+                    <li>Текстовое форматирование и списки</li>
+                    <li>Ссылки и изображения</li>
+                    <li>Таблицы и формы</li>
+                    <li>Валидация HTML</li>
+                  </ul>
+                </div>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Create a personal profile page with proper semantic
-                    structure
+                    Создайте базовую HTML-страницу с биографией, включающую
+                    заголовки, параграфы, списки, изображения и ссылки.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
                       <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                        href="https://developer.mozilla.org/ru/docs/Learn/HTML/Introduction_to_HTML"
                         target="_blank"
-                        >MDN Web Docs: HTML</a
+                        >MDN: Введение в HTML</a
                       >
-                      - Comprehensive guide to HTML
                     </li>
                     <li>
                       <a href="https://www.w3schools.com/html/" target="_blank"
-                        >W3Schools HTML Tutorial</a
+                        >W3Schools HTML учебник</a
                       >
-                      - Interactive HTML tutorial
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.freecodecamp.org/learn/responsive-web-design/#basic-html-and-html5"
+                        target="_blank"
+                        >FreeCodeCamp: Basic HTML</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -1732,134 +1802,54 @@
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 3-5: CSS Foundations</h4>
+                <h4>День 3-4: Основы CSS</h4>
               </div>
               <div class="day-content">
                 <p>
-                  Master the styling language to make your HTML look
-                  professional.
+                  Изучите, как стилизовать ваши HTML-страницы с помощью CSS,
+                  превращая их из простого текста в визуально привлекательные
+                  веб-страницы.
                 </p>
-                <ul class="topics-list">
-                  <li>CSS selectors and specificity</li>
-                  <li>Box model (margin, border, padding)</li>
-                  <li>Typography and text styling</li>
-                  <li>Colors, backgrounds, and gradients</li>
-                  <li>CSS units (px, em, rem, %, vh/vw)</li>
-                  <li>Browser developer tools for CSS debugging</li>
-                </ul>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Подключение CSS к HTML</li>
+                    <li>Селекторы и специфичность</li>
+                    <li>Цвета, фоны и границы</li>
+                    <li>Блочная модель (margin, padding, border)</li>
+                    <li>Типографика и стилизация текста</li>
+                    <li>Свойства отображения и позиционирование</li>
+                  </ul>
+                </div>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Style your personal profile page with a consistent color
-                    scheme and layout
+                    Применить стили CSS к вашей HTML-странице с биографией,
+                    добавляя цвета, шрифты, границы и оформление для создания
+                    привлекательного дизайна.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
                       <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                        href="https://developer.mozilla.org/ru/docs/Learn/CSS/First_steps"
                         target="_blank"
-                        >MDN Web Docs: CSS</a
+                        >MDN: Первые шаги в CSS</a
                       >
-                      - Complete CSS reference
                     </li>
                     <li>
-                      <a href="https://css-tricks.com/" target="_blank"
-                        >CSS-Tricks</a
+                      <a href="https://css-tricks.com/guides/" target="_blank"
+                        >CSS-Tricks: Руководства</a
                       >
-                      - Helpful CSS articles and guides
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-day">
-              <div class="day-header">
-                <h4>Day 6-7: CSS Layout</h4>
-              </div>
-              <div class="day-content">
-                <p>Learn modern layout techniques to structure your pages.</p>
-                <ul class="topics-list">
-                  <li>Flexbox layout system</li>
-                  <li>CSS Grid for two-dimensional layouts</li>
-                  <li>Responsive design principles</li>
-                  <li>Media queries</li>
-                  <li>Mobile-first approach</li>
-                  <li>
-                    Common website layouts (blog, landing page, dashboard)
-                  </li>
-                </ul>
-                <div class="practice-project">
-                  <h5>Practice Project:</h5>
-                  <p>
-                    Create a responsive landing page with hero section, features
-                    grid, and testimonials
-                  </p>
-                </div>
-                <div class="day-resources">
-                  <h5>Learning Resources:</h5>
-                  <ul class="resources-list">
-                    <li>
-                      <a href="https://flexboxfroggy.com/" target="_blank"
-                        >Flexbox Froggy</a
-                      >
-                      - Game to learn Flexbox
-                    </li>
-                    <li>
-                      <a href="https://cssgridgarden.com/" target="_blank"
-                        >Grid Garden</a
-                      >
-                      - Interactive CSS Grid tutorial
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Week 2: JavaScript Basics -->
-          <div class="timeline-section">
-            <div class="timeline-header">
-              <h3>Week 2: JavaScript Basics</h3>
-            </div>
-
-            <div class="timeline-day">
-              <div class="day-header">
-                <h4>Day 8-9: JavaScript Fundamentals</h4>
-              </div>
-              <div class="day-content">
-                <p>Master the basics of programming with JavaScript.</p>
-                <ul class="topics-list">
-                  <li>Variables, data types, and operators</li>
-                  <li>Control flow (if/else, switch, loops)</li>
-                  <li>Functions and scope</li>
-                  <li>Arrays and objects</li>
-                  <li>Error handling with try/catch</li>
-                  <li>JavaScript in the browser console</li>
-                </ul>
-                <div class="practice-project">
-                  <h5>Practice Project:</h5>
-                  <p>Create a calculator with basic arithmetic operations</p>
-                </div>
-                <div class="day-resources">
-                  <h5>Learning Resources:</h5>
-                  <ul class="resources-list">
-                    <li>
-                      <a href="https://javascript.info/" target="_blank"
-                        >JavaScript.info</a
-                      >
-                      - Modern JavaScript tutorial
                     </li>
                     <li>
                       <a
-                        href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+                        href="https://www.freecodecamp.org/learn/responsive-web-design/#basic-css"
                         target="_blank"
-                        >freeCodeCamp JavaScript Course</a
+                        >FreeCodeCamp: Basic CSS</a
                       >
-                      - Interactive JS lessons
                     </li>
                   </ul>
                 </div>
@@ -1868,206 +1858,287 @@
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 10-11: DOM Manipulation</h4>
+                <h4>День 5-7: CSS Макеты и Flexbox</h4>
               </div>
               <div class="day-content">
                 <p>
-                  Learn to interact with and modify web page elements using
-                  JavaScript.
+                  Освойте современные методы создания макетов с помощью CSS,
+                  фокусируясь на Flexbox для построения адаптивных, гибких
+                  дизайнов.
                 </p>
-                <ul class="topics-list">
-                  <li>
-                    Understanding the Document Object Model (DOM) structure
-                  </li>
-                  <li>
-                    Selecting elements with querySelector and getElementById
-                  </li>
-                  <li>Modifying element content and attributes</li>
-                  <li>Creating and removing elements dynamically</li>
-                  <li>Event listeners and handling user interactions</li>
-                  <li>Traversing the DOM tree (parents, children, siblings)</li>
-                </ul>
-                <div class="practice-project">
-                  <h5>Practice Project:</h5>
-                  <p>
-                    Build a to-do list application with add, complete, and
-                    delete functionality
-                  </p>
-                </div>
-                <div class="day-resources">
-                  <h5>Learning Resources:</h5>
-                  <ul class="resources-list">
-                    <li>
-                      <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
-                        target="_blank"
-                        >MDN: Introduction to the DOM</a
-                      >
-                      - Comprehensive guide to DOM
-                    </li>
-                    <li>
-                      <a href="https://javascript.info/document" target="_blank"
-                        >JavaScript.info: Document</a
-                      >
-                      - Interactive DOM manipulation tutorial
-                    </li>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Принципы макетов CSS</li>
+                    <li>Введение в Flexbox</li>
+                    <li>Flexbox-контейнеры и flex-элементы</li>
+                    <li>Выравнивание и распределение пространства</li>
+                    <li>Вложенные flex-контейнеры</li>
+                    <li>Создание общих шаблонов макетов</li>
                   </ul>
                 </div>
-              </div>
-            </div>
-
-            <div class="timeline-day">
-              <div class="day-header">
-                <h4>Day 12-14: Working with Browser APIs</h4>
-              </div>
-              <div class="day-content">
-                <p>
-                  Explore the browser's built-in APIs for enhanced
-                  functionality.
-                </p>
-                <ul class="topics-list">
-                  <li>
-                    Using localStorage and sessionStorage for data persistence
-                  </li>
-                  <li>Working with timers (setTimeout, setInterval)</li>
-                  <li>Handling forms and form validation</li>
-                  <li>Making HTTP requests with the Fetch API</li>
-                  <li>Working with JSON data</li>
-                  <li>Error handling in asynchronous operations</li>
-                </ul>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Create a weather app that fetches data from a public API and
-                    stores user preferences
+                    Создайте навигационную панель и структуру макета с помощью
+                    Flexbox для вашей страницы биографии, добавляя заголовок,
+                    боковую панель и раздел основного контента.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
                       <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+                        href="https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Flexbox"
                         target="_blank"
-                        >MDN: Using the Fetch API</a
+                        >MDN: Flexbox</a
                       >
-                      - Guide to making HTTP requests
                     </li>
-                    <li>
-                      <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API"
-                        target="_blank"
-                        >MDN: Using the Web Storage API</a
-                      >
-                      - Tutorial on localStorage
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Week 3: Advanced JavaScript & Frontend Development -->
-          <div class="timeline-section">
-            <div class="timeline-header">
-              <h3>Week 3: Advanced JavaScript & Frontend Development</h3>
-            </div>
-
-            <div class="timeline-day">
-              <div class="day-header">
-                <h4>Day 15-16: Advanced JavaScript Concepts</h4>
-              </div>
-              <div class="day-content">
-                <p>
-                  Deepen your JavaScript knowledge with more complex programming
-                  concepts.
-                </p>
-                <ul class="topics-list">
-                  <li>
-                    ES6+ features (arrow functions, template literals,
-                    destructuring)
-                  </li>
-                  <li>
-                    Higher-order functions and array methods (map, filter,
-                    reduce)
-                  </li>
-                  <li>Understanding 'this' keyword and lexical scope</li>
-                  <li>Closures and how they work</li>
-                  <li>Promises and asynchronous JavaScript</li>
-                  <li>async/await for cleaner asynchronous code</li>
-                </ul>
-                <div class="practice-project">
-                  <h5>Practice Project:</h5>
-                  <p>
-                    Refactor an existing project using modern JavaScript syntax
-                    and features
-                  </p>
-                </div>
-                <div class="day-resources">
-                  <h5>Learning Resources:</h5>
-                  <ul class="resources-list">
-                    <li>
-                      <a href="https://javascript.info/async" target="_blank"
-                        >JavaScript.info: Async/await</a
-                      >
-                      - Guide to asynchronous programming
-                    </li>
-                    <li>
-                      <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
-                        target="_blank"
-                        >MDN: Arrow Functions</a
-                      >
-                      - Reference and examples
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="timeline-day">
-              <div class="day-header">
-                <h4>Day 17-18: Responsive Web Design Techniques</h4>
-              </div>
-              <div class="day-content">
-                <p>Master advanced CSS for professional responsive layouts.</p>
-                <ul class="topics-list">
-                  <li>Flexbox for complex layouts</li>
-                  <li>CSS Grid for two-dimensional layout systems</li>
-                  <li>Advanced responsive design with media queries</li>
-                  <li>Mobile-first approach to CSS</li>
-                  <li>
-                    CSS custom properties (variables) for maintainable styling
-                  </li>
-                  <li>
-                    CSS animations and transitions for enhanced user experience
-                  </li>
-                </ul>
-                <div class="practice-project">
-                  <h5>Practice Project:</h5>
-                  <p>
-                    Create a responsive dashboard layout that adapts to
-                    different screen sizes
-                  </p>
-                </div>
-                <div class="day-resources">
-                  <h5>Learning Resources:</h5>
-                  <ul class="resources-list">
                     <li>
                       <a
                         href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
                         target="_blank"
-                        >CSS-Tricks: A Complete Guide to Flexbox</a
+                        >CSS-Tricks: Полное руководство по Flexbox</a
                       >
-                      - Comprehensive flexbox reference
+                    </li>
+                    <li>
+                      <a href="https://flexboxfroggy.com/" target="_blank"
+                        >Flexbox Froggy (игра)</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <h3>Неделя 2: Основы JavaScript</h3>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>День 8-9: Введение в JavaScript</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Начните изучение JavaScript, языка программирования, который
+                  добавляет интерактивность вашим веб-страницам.
+                </p>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Основы JavaScript и подключение к HTML</li>
+                    <li>Переменные, типы данных и операторы</li>
+                    <li>Условные операторы (if/else, switch)</li>
+                    <li>Функции и область видимости</li>
+                    <li>Базовый вывод на консоль и отладка</li>
+                    <li>Работа с математическими операциями</li>
+                  </ul>
+                </div>
+                <div class="practice-project">
+                  <h5>Практический проект:</h5>
+                  <p>
+                    Создайте простой калькулятор с пользовательским интерфейсом,
+                    который может выполнять базовые арифметические операции.
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Ресурсы для обучения:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/First_steps"
+                        target="_blank"
+                        >MDN: Первые шаги с JavaScript</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.w3schools.com/js/default.asp"
+                        target="_blank"
+                        >W3Schools JavaScript руководство</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://javascript.info/first-steps"
+                        target="_blank"
+                        >JavaScript.info: Основы JavaScript</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>День 10-11: JavaScript Циклы и Массивы</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Изучите, как работать с коллекциями данных и циклами для
+                  обработки множества значений и структурированных данных.
+                </p>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Циклы for, while, и do-while</li>
+                    <li>Массивы и их методы</li>
+                    <li>Итерация по массивам</li>
+                    <li>Многомерные массивы</li>
+                    <li>Методы обработки массивов (map, filter, reduce)</li>
+                    <li>Сортировка и поиск в массивах</li>
+                  </ul>
+                </div>
+                <div class="practice-project">
+                  <h5>Практический проект:</h5>
+                  <p>
+                    Создайте приложение списка дел (todo-list), где пользователи
+                    могут добавлять, удалять и отмечать задачи как выполненные.
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Ресурсы для обучения:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/Building_blocks/Looping_code"
+                        target="_blank"
+                        >MDN: Циклы и итерации</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/First_steps/Arrays"
+                        target="_blank"
+                        >MDN: Массивы JavaScript</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://javascript.info/array-methods"
+                        target="_blank"
+                        >JavaScript.info: Методы массивов</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>День 12-14: JavaScript Объекты и DOM</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Изучите объекты JavaScript и Объектную Модель Документа (DOM),
+                  чтобы взаимодействовать с HTML-страницами и изменять их.
+                </p>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Работа с объектами JavaScript</li>
+                    <li>Свойства и методы объектов</li>
+                    <li>Введение в DOM</li>
+                    <li>Выбор и манипуляция элементами DOM</li>
+                    <li>События и обработчики событий</li>
+                    <li>Динамическое создание и удаление элементов</li>
+                  </ul>
+                </div>
+                <div class="practice-project">
+                  <h5>Практический проект:</h5>
+                  <p>
+                    Улучшите своё приложение списка задач, добавив сохранение
+                    данных в localStorage, фильтрацию и редактирование задач.
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Ресурсы для обучения:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/Objects"
+                        target="_blank"
+                        >MDN: Введение в объекты JavaScript</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents"
+                        target="_blank"
+                        >MDN: Манипулирование документами</a
+                      >
+                    </li>
+                    <li>
+                      <a href="https://javascript.info/document" target="_blank"
+                        >JavaScript.info: Документ и DOM</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <h3>Неделя 3: Адаптивный дизайн и CSS Продвинутые техники</h3>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>День 15-16: CSS Grid и Адаптивный дизайн</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Освойте CSS Grid и принципы отзывчивого дизайна для создания
+                  современных, адаптивных веб-сайтов, которые выглядят хорошо на
+                  любом устройстве.
+                </p>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Введение в CSS Grid</li>
+                    <li>Строки, столбцы и шаблоны областей</li>
+                    <li>Медиа-запросы и брейкпоинты</li>
+                    <li>Подход Mobile-first</li>
+                    <li>Гибкие изображения и содержимое</li>
+                    <li>Комбинирование Grid и Flexbox</li>
+                  </ul>
+                </div>
+                <div class="practice-project">
+                  <h5>Практический проект:</h5>
+                  <p>
+                    Создайте адаптивный макет страницы фотогалереи, который
+                    плавно изменяется от мобильного до десктопного отображения.
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Ресурсы для обучения:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Learn/CSS/CSS_layout/Grids"
+                        target="_blank"
+                        >MDN: CSS Grid</a
+                      >
                     </li>
                     <li>
                       <a
                         href="https://css-tricks.com/snippets/css/complete-guide-grid/"
                         target="_blank"
-                        >CSS-Tricks: A Complete Guide to Grid</a
+                        >CSS-Tricks: Полное руководство по CSS Grid</a
                       >
-                      - Comprehensive grid reference
+                    </li>
+                    <li>
+                      <a href="https://cssgridgarden.com/" target="_blank"
+                        >Grid Garden (игра)</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -2076,44 +2147,105 @@
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 19-21: Modern CSS Frameworks</h4>
+                <h4>День 17-18: CSS Переменные и Препроцессоры</h4>
               </div>
               <div class="day-content">
                 <p>
-                  Learn to use CSS frameworks to speed up development and create
-                  professional designs.
+                  Изучите продвинутые методы CSS, которые делают ваши таблицы
+                  стилей более организованными, поддерживаемыми и мощными.
                 </p>
-                <ul class="topics-list">
-                  <li>Introduction to Bootstrap framework</li>
-                  <li>Utility-first approach with Tailwind CSS</li>
-                  <li>CSS preprocessors (SASS/SCSS)</li>
-                  <li>Customizing framework themes and variables</li>
-                  <li>Responsive components and layouts</li>
-                  <li>Building a design system with consistent styles</li>
-                </ul>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>CSS переменные (кастомные свойства)</li>
+                    <li>Введение в SASS/SCSS</li>
+                    <li>Вложенность, миксины и функции</li>
+                    <li>Организация кода с частичными файлами</li>
+                    <li>Методологии CSS (BEM, SMACSS, OOCSS)</li>
+                    <li>Оптимизация и лучшие практики</li>
+                  </ul>
+                </div>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Rebuild your portfolio site using a CSS framework of your
-                    choice
+                    Рефакторинг ваших предыдущих проектов с использованием SCSS
+                    и переменных для создания темной и светлой тем.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
                       <a
-                        href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+                        href="https://developer.mozilla.org/ru/docs/Web/CSS/Using_CSS_custom_properties"
                         target="_blank"
-                        >Bootstrap Documentation</a
+                        >MDN: Использование CSS переменных</a
                       >
-                      - Official guide to Bootstrap
                     </li>
                     <li>
-                      <a href="https://tailwindcss.com/docs" target="_blank"
-                        >Tailwind CSS Documentation</a
+                      <a href="https://sass-lang.com/guide" target="_blank"
+                        >Sass: Руководство</a
                       >
-                      - Official guide to Tailwind
+                    </li>
+                    <li>
+                      <a href="https://css-tricks.com/bem-101/" target="_blank"
+                        >CSS-Tricks: Введение в BEM</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>День 19-21: CSS Анимации и Переходы</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Добавьте движение и интерактивность в ваши проекты с помощью
+                  анимаций и переходов CSS.
+                </p>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>CSS переходы</li>
+                    <li>Keyframe-анимации</li>
+                    <li>Свойства трансформации</li>
+                    <li>Анимация по триггерам событий</li>
+                    <li>Производительность анимации</li>
+                    <li>Библиотеки анимаций</li>
+                  </ul>
+                </div>
+                <div class="practice-project">
+                  <h5>Практический проект:</h5>
+                  <p>
+                    Создайте интерактивную посадочную страницу с анимированными
+                    элементами, появляющимися при прокрутке, и интерактивными
+                    эффектами наведения.
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Ресурсы для обучения:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/Using_CSS_animations"
+                        target="_blank"
+                        >MDN: Использование анимаций CSS</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        href="https://css-tricks.com/almanac/properties/t/transition/"
+                        target="_blank"
+                        >CSS-Tricks: Справочник по переходам</a
+                      >
+                    </li>
+                    <li>
+                      <a href="https://animista.net/" target="_blank"
+                        >Animista - Библиотека CSS-анимаций</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -2121,54 +2253,58 @@
             </div>
           </div>
 
-          <!-- Week 4: Frontend Frameworks & React Introduction -->
           <div class="timeline-section">
             <div class="timeline-header">
-              <h3>Week 4: Frontend Frameworks & React Introduction</h3>
+              <h3>Неделя 4: Фронтенд Фреймворки и React</h3>
             </div>
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 22-23: Introduction to Frontend Frameworks</h4>
+                <h4>День 22-23: Введение в Фронтенд Фреймворки</h4>
               </div>
               <div class="day-content">
                 <p>
-                  Learn about modern JavaScript frameworks and their role in web
-                  development.
+                  Познакомьтесь с фронтенд-фреймворками и изучите, почему они
+                  важны для современной веб-разработки.
                 </p>
-                <ul class="topics-list">
-                  <li>Understanding the need for frontend frameworks</li>
-                  <li>Overview of popular frameworks (React, Vue, Angular)</li>
-                  <li>Component-based architecture</li>
-                  <li>Virtual DOM and its advantages</li>
-                  <li>Single Page Applications (SPAs)</li>
-                  <li>Framework selection criteria for different projects</li>
-                </ul>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Зачем нужны фреймворки</li>
+                    <li>Обзор популярных фреймворков (React, Vue, Angular)</li>
+                    <li>Подходы к управлению состоянием и данными</li>
+                    <li>Компонентная архитектура</li>
+                    <li>Преимущества и недостатки фреймворков</li>
+                    <li>Основы выбора фреймворка для проекта</li>
+                  </ul>
+                </div>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Compare frameworks by building a simple component in each
-                    (React and Vue)
+                    Создайте простое приложение для сравнения, реализуя один и
+                    тот же функционал в нескольких фреймворках для понимания их
+                    отличий.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
                       <a
-                        href="https://reactjs.org/docs/getting-started.html"
+                        href="https://ru.reactjs.org/docs/getting-started.html"
                         target="_blank"
-                        >React Documentation</a
+                        >React - Официальная документация</a
                       >
-                      - Official React docs
                     </li>
                     <li>
-                      <a
-                        href="https://vuejs.org/guide/introduction.html"
-                        target="_blank"
-                        >Vue.js Documentation</a
+                      <a href="https://ru.vuejs.org/v2/guide/" target="_blank"
+                        >Vue.js - Руководство</a
                       >
-                      - Official Vue.js docs
+                    </li>
+                    <li>
+                      <a href="https://stateofjs.com/" target="_blank"
+                        >State of JS - Тенденции JavaScript</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -2177,40 +2313,51 @@
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 24-25: React Fundamentals</h4>
+                <h4>День 24-25: Основы React</h4>
               </div>
               <div class="day-content">
-                <p>Master the basic concepts of React development.</p>
-                <ul class="topics-list">
-                  <li>Setting up a React project with Create React App</li>
-                  <li>JSX syntax and expressions</li>
-                  <li>Components and props</li>
-                  <li>State and lifecycle</li>
-                  <li>Event handling in React</li>
-                  <li>Conditional rendering and lists</li>
-                </ul>
+                <p>
+                  Изучите основы React, одного из самых популярных
+                  JavaScript-фреймворков.
+                </p>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Настройка проекта React</li>
+                    <li>JSX синтаксис</li>
+                    <li>Компоненты и их типы</li>
+                    <li>Пропсы и состояние</li>
+                    <li>Обработка событий в React</li>
+                    <li>Условный рендеринг</li>
+                  </ul>
+                </div>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Build a task manager app with React components and state
+                    Создайте приложение для управления задачами с возможностью
+                    добавления, удаления и отметки выполнения задач, используя
+                    React.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
-                      <a
-                        href="https://reactjs.org/tutorial/tutorial.html"
-                        target="_blank"
-                        >React Tutorial</a
+                      <a href="https://create-react-app.dev/" target="_blank"
+                        >Create React App</a
                       >
-                      - Official React tutorial
+                    </li>
+                    <li>
+                      <a
+                        href="https://ru.reactjs.org/tutorial/tutorial.html"
+                        target="_blank"
+                        >React - Официальный учебник</a
+                      >
                     </li>
                     <li>
                       <a href="https://beta.reactjs.org/learn" target="_blank"
-                        >React Learn</a
+                        >React Документация (новая версия)</a
                       >
-                      - New React documentation
                     </li>
                   </ul>
                 </div>
@@ -2219,44 +2366,53 @@
 
             <div class="timeline-day">
               <div class="day-header">
-                <h4>Day 26-28: React Hooks and State Management</h4>
+                <h4>День 26-28: React Хуки и Управление Состоянием</h4>
               </div>
               <div class="day-content">
                 <p>
-                  Deepen your React knowledge with hooks and state management.
+                  Углубитесь в React, изучая хуки и паттерны управления
+                  состоянием.
                 </p>
-                <ul class="topics-list">
-                  <li>useState and useEffect hooks</li>
-                  <li>Custom hooks for reusable logic</li>
-                  <li>useContext for sharing state</li>
-                  <li>useReducer for complex state logic</li>
-                  <li>State management patterns</li>
-                  <li>Introduction to state management libraries</li>
-                </ul>
+                <div class="day-topics">
+                  <h5>Темы:</h5>
+                  <ul class="topics-list">
+                    <li>Хуки React (useState, useEffect, useContext)</li>
+                    <li>Создание пользовательских хуков</li>
+                    <li>Паттерны управления состоянием</li>
+                    <li>Context API для глобального состояния</li>
+                    <li>Оптимизация производительности</li>
+                    <li>Обработка форм в React</li>
+                  </ul>
+                </div>
                 <div class="practice-project">
-                  <h5>Practice Project:</h5>
+                  <h5>Практический проект:</h5>
                   <p>
-                    Enhance your task manager with context API and custom hooks
+                    Улучшите ваше приложение для управления задачами, добавив
+                    фильтрацию, сортировку и использование Context API для
+                    управления темами.
                   </p>
                 </div>
                 <div class="day-resources">
-                  <h5>Learning Resources:</h5>
+                  <h5>Ресурсы для обучения:</h5>
                   <ul class="resources-list">
                     <li>
                       <a
-                        href="https://reactjs.org/docs/hooks-intro.html"
+                        href="https://ru.reactjs.org/docs/hooks-intro.html"
                         target="_blank"
-                        >React Hooks Introduction</a
+                        >React - Введение в хуки</a
                       >
-                      - Official React hooks documentation
                     </li>
                     <li>
                       <a
-                        href="https://reactjs.org/docs/context.html"
+                        href="https://ru.reactjs.org/docs/context.html"
                         target="_blank"
-                        >React Context</a
+                        >React - Context API</a
                       >
-                      - Official Context API documentation
+                    </li>
+                    <li>
+                      <a href="https://usehooks.com/" target="_blank"
+                        >useHooks - Коллекция пользовательских хуков</a
+                      >
                     </li>
                   </ul>
                 </div>
@@ -2271,15 +2427,15 @@
       <div class="container">
         <div class="footer-content">
           <p>
-            &copy; 2025 FullStack Roadmap - Your guide to web development
-            mastery
+            &copy; 2025 Путь Фулстек-Разработчика - Ваш проводник в мастерство
+            веб-разработки
           </p>
           <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#beginner">Beginner</a>
-            <a href="#intermediate">Intermediate</a>
-            <a href="#midlevel">Mid-Level</a>
-            <a href="#advanced-roadmap">Day-by-Day Roadmap</a>
+            <a href="#home">Главная</a>
+            <a href="#beginner">Начинающий</a>
+            <a href="#intermediate">Средний</a>
+            <a href="#midlevel">Продвинутый</a>
+            <a href="#advanced-roadmap">День за Днём</a>
           </div>
         </div>
       </div>
@@ -2290,11 +2446,13 @@
       document.addEventListener("DOMContentLoaded", function () {
         const themeToggle = document.getElementById("theme-toggle");
         const body = document.documentElement;
-        
+
         // Check for saved theme preference or use preferred color scheme
         const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+
         if (savedTheme) {
           body.setAttribute("data-theme", savedTheme);
           themeToggle.checked = savedTheme === "dark";
@@ -2302,9 +2460,9 @@
           body.setAttribute("data-theme", "dark");
           themeToggle.checked = true;
         }
-        
+
         // Toggle theme on click
-        themeToggle.addEventListener("change", function() {
+        themeToggle.addEventListener("change", function () {
           if (this.checked) {
             body.setAttribute("data-theme", "dark");
             localStorage.setItem("theme", "dark");
@@ -2313,18 +2471,17 @@
             localStorage.setItem("theme", "light");
           }
         });
-        
+
         // Mobile menu toggle
         const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
         const nav = document.querySelector(".nav");
-        
+
         if (mobileMenuToggle) {
-          mobileMenuToggle.addEventListener("click", function() {
+          mobileMenuToggle.addEventListener("click", function () {
             nav.classList.toggle("active");
           });
         }
 
-        // Simple JavaScript to make the roadmap items expandable
         // Expand/collapse roadmap items
         const roadmapItems = document.querySelectorAll(".roadmap-item h3");
         roadmapItems.forEach((item) => {
@@ -2341,24 +2498,6 @@
             const parent = this.parentElement;
             parent.classList.toggle("expanded");
           });
-        });
-
-        // Open the first roadmap item in each section by default
-        const sections = document.querySelectorAll(".roadmap-section");
-        sections.forEach((section) => {
-          const firstItem = section.querySelector(".roadmap-item");
-          if (firstItem) {
-            firstItem.classList.add("expanded");
-          }
-        });
-
-        // Open the first day in each timeline section by default
-        const timelineSections = document.querySelectorAll(".timeline-section");
-        timelineSections.forEach((section) => {
-          const firstDay = section.querySelector(".timeline-day");
-          if (firstDay) {
-            firstDay.classList.add("expanded");
-          }
         });
 
         // Active navigation based on scroll
@@ -2391,7 +2530,7 @@
 
         // Add smooth scrolling for navigation links
         const navLinks = document.querySelectorAll(".nav-item");
-        
+
         navLinks.forEach((link) => {
           link.addEventListener("click", function (e) {
             // Get the target section id from the href
@@ -2410,7 +2549,7 @@
                 // Update active class on navigation items
                 navLinks.forEach((link) => link.classList.remove("active"));
                 this.classList.add("active");
-                
+
                 // Close mobile menu if open
                 if (window.innerWidth <= 768) {
                   nav.classList.remove("active");
@@ -2419,7 +2558,7 @@
             }
           });
         });
-        
+
         // Show mobile menu toggle on smaller screens
         function checkScreenSize() {
           if (window.innerWidth <= 768) {
@@ -2429,15 +2568,10 @@
             nav.classList.remove("active");
           }
         }
-        
+
         // Initial check and listen for window resize
         checkScreenSize();
         window.addEventListener("resize", checkScreenSize);
-      });
-    </script>
-  </body>
-</html>
-
       });
     </script>
   </body>
