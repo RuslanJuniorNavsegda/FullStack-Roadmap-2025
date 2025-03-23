@@ -1,0 +1,2444 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Путь Фулстек-Разработчика 2025</title>
+    <style>
+      /* Core styles */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 70px; /* Match the header height */
+      }
+
+      :root {
+        /* Light theme (default) */
+        --color-primary: #3f51b5;
+        --color-primary-light: #757de8;
+        --color-primary-dark: #303f9f;
+        --color-secondary: #ff4081;
+        --color-text: #333333;
+        --color-text-light: #666666;
+        --color-background: #ffffff;
+        --color-background-alt: #f5f7fa;
+        --color-border: #e0e0e0;
+        --color-success: #4caf50;
+        --color-item-bg: #f5f7fa;
+        --color-header-bg: #ffffff;
+        --color-timeline-bg: #ffffff;
+        --color-footer-bg: #f8f9fa;
+        --color-shadow: rgba(0, 0, 0, 0.1);
+        --font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        --timeline-color: var(--color-primary);
+        --timeline-bullet-color: var(--color-primary);
+        --border-radius: 8px;
+        --transition: all 0.3s ease;
+      }
+
+      [data-theme="dark"] {
+        --color-primary: #5c6bc0;
+        --color-primary-light: #8e99f3;
+        --color-primary-dark: #394096;
+        --color-secondary: #ff5c93;
+        --color-text: #e0e0e0;
+        --color-text-light: #b0b0b0;
+        --color-background: #121212;
+        --color-background-alt: #1e1e1e;
+        --color-border: #333333;
+        --color-success: #66bb6a;
+        --color-item-bg: #2d2d2d;
+        --color-header-bg: #1a1a1a;
+        --color-timeline-bg: #1e1e1e;
+        --color-footer-bg: #1a1a1a;
+        --color-shadow: rgba(0, 0, 0, 0.3);
+        --timeline-color: var(--color-primary);
+        --timeline-bullet-color: var(--color-primary);
+        --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-family);
+        color: var(--color-text);
+        line-height: 1.5;
+        background-color: var(--color-background-alt);
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      .header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: var(--color-header-bg);
+        box-shadow: var(--box-shadow);
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--color-primary);
+        transition: color 0.3s ease;
+      }
+
+      .nav-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav {
+        display: flex;
+        gap: 16px;
+      }
+
+      .nav-item {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--color-text);
+        padding: 8px 16px;
+        border-radius: 4px;
+        transition: var(--transition);
+        text-decoration: none;
+      }
+
+      .nav-item:hover {
+        background-color: rgba(var(--color-primary-rgb), 0.1);
+        color: var(--color-primary);
+      }
+
+      .nav-item.active {
+        color: var(--color-primary);
+        font-weight: 700;
+        background-color: rgba(var(--color-primary-rgb), 0.1);
+      }
+
+      /* Theme switcher */
+      .theme-switch {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        margin-left: 16px;
+      }
+
+      .theme-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .theme-switch-label {
+        width: 50px;
+        height: 24px;
+        background-color: var(--color-background-alt);
+        border-radius: 24px;
+        position: relative;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+      }
+
+      .theme-switch-label::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        top: 2px;
+        left: 2px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      .theme-switch input:checked + .theme-switch-label {
+        background-color: var(--color-primary-dark);
+      }
+
+      .theme-switch input:checked + .theme-switch-label::after {
+        transform: translateX(26px);
+        background-color: var(--color-primary-light);
+      }
+
+      .theme-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: var(--color-text);
+        z-index: 1;
+      }
+
+      .theme-icon-light {
+        left: 7px;
+      }
+
+      .theme-icon-dark {
+        right: 6px;
+      }
+
+      /* Hero section */
+      .hero {
+        background: linear-gradient(
+          to right,
+          var(--color-primary-dark),
+          var(--color-primary)
+        );
+        color: white;
+        padding: 80px 0 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        pointer-events: none;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 32px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 32px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 16px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.3);
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(1, 1) translate(-50%);
+        transform-origin: 50% 50%;
+      }
+
+      .btn:hover::after {
+        animation: ripple 1s ease-out;
+      }
+
+      @keyframes ripple {
+        0% {
+          transform: scale(0, 0);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(20, 20);
+          opacity: 0;
+        }
+      }
+
+      .btn-primary {
+        background-color: var(--color-secondary);
+        color: white;
+        box-shadow: 0 4px 6px rgba(255, 64, 129, 0.2);
+      }
+
+      .btn-primary:hover {
+        background-color: #e91e63;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 10px rgba(255, 64, 129, 0.3);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-outline:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      /* Section styles */
+      .section {
+        padding: 60px 0;
+        transition: background-color 0.3s ease;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .section-header h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+
+      .section-header p {
+        font-size: 18px;
+        color: var(--color-text-light);
+        max-width: 600px;
+        margin: 0 auto;
+        transition: color 0.3s ease;
+      }
+
+      /* Roadmap item styles */
+      .roadmap-content {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: var(--color-timeline-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 30px;
+        margin-top: 30px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .roadmap-section {
+        margin-bottom: 40px;
+      }
+
+      .roadmap-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .roadmap-section-title {
+        font-size: 24px;
+        color: var(--color-primary);
+        font-weight: 700;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--color-primary-light);
+        transition: color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .roadmap-item {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: var(--color-item-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 5px var(--color-shadow);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      }
+
+      .roadmap-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px var(--color-shadow);
+      }
+
+      .roadmap-item h3 {
+        font-size: 20px;
+        color: var(--color-primary-dark);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+
+      .roadmap-item h3:hover {
+        color: var(--color-primary);
+      }
+
+      .roadmap-item h3::after {
+        content: "+";
+        margin-left: auto;
+        font-size: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .roadmap-item.expanded h3::after {
+        transform: rotate(45deg);
+      }
+
+      .roadmap-item-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .roadmap-item.expanded .roadmap-item-content {
+        max-height: 1000px;
+      }
+
+      .skills-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 15px 0 10px 0;
+        color: var(--color-text);
+        transition: color 0.3s ease;
+      }
+
+      .skills-list {
+        list-style-type: none;
+        margin-left: 10px;
+      }
+
+      .skills-list li {
+        padding: 5px 0 5px 25px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .skills-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 13px;
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+
+      .milestone {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: rgba(var(--color-primary-rgb), 0.05);
+        border-left: 4px solid var(--color-primary);
+        border-radius: 0 8px 8px 0;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .milestone h4 {
+        font-size: 16px;
+        color: var(--color-primary-dark);
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+      }
+
+      .milestone p {
+        margin: 0;
+        font-size: 15px;
+        transition: color 0.3s ease;
+      }
+
+      /* Timeline styles for advanced roadmap */
+      .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 30px;
+        width: 4px;
+        background-color: var(--timeline-color);
+        border-radius: 2px;
+        transition: background-color 0.3s ease;
+      }
+
+      .timeline-section {
+        position: relative;
+        margin-bottom: 60px;
+        padding-left: 60px;
+      }
+
+      .timeline-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .timeline-header {
+        position: relative;
+        margin-bottom: 30px;
+        background-color: var(--color-primary);
+        color: white;
+        padding: 15px 20px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .timeline-header::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -45px;
+        width: 30px;
+        height: 30px;
+        background-color: var(--timeline-bullet-color);
+        border-radius: 50%;
+        transform: translateY(-50%);
+        box-shadow: var(--box-shadow);
+        z-index: 1;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .timeline-header h3 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .timeline-day {
+        position: relative;
+        margin-bottom: 20px;
+        background-color: var(--color-timeline-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        overflow: hidden;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      }
+
+      .timeline-day:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px var(--color-shadow);
+      }
+
+      .timeline-day::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: -33px;
+        width: 12px;
+        height: 12px;
+        background-color: white;
+        border: 3px solid var(--timeline-bullet-color);
+        border-radius: 50%;
+        z-index: 1;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .day-header {
+        background-color: rgba(var(--color-primary-rgb), 0.1);
+        padding: 15px 20px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s ease;
+      }
+
+      .day-header h4 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--color-primary-dark);
+        transition: color 0.3s ease;
+      }
+
+      .day-content {
+        padding: 20px;
+        border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .timeline-day.expanded .day-content {
+        max-height: 1000px;
+      }
+
+      .day-content p {
+        margin-top: 0;
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+      }
+
+      .topics-list {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .topics-list li {
+        position: relative;
+        padding: 6px 0 6px 25px;
+        margin-bottom: 6px;
+        transition: color 0.3s ease;
+      }
+
+      .topics-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+      }
+
+      .practice-project {
+        background-color: rgba(var(--color-primary-rgb), 0.05);
+        border-left: 4px solid var(--color-primary);
+        padding: 15px;
+        border-radius: 0 4px 4px 0;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+      }
+
+      .practice-project h5 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: var(--color-primary-dark);
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .practice-project p {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .day-resources {
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
+        transition: border-color 0.3s ease;
+      }
+
+      .day-resources h5 {
+        color: var(--color-primary-dark);
+        margin-bottom: 10px;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .resources-list {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .resources-list li {
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 0;
+        transition: color 0.3s ease;
+      }
+
+      .resources-list a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .resources-list a:hover {
+        text-decoration: underline;
+        color: var(--color-primary-dark);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--color-footer-bg);
+        padding: 40px 0;
+        margin-top: 60px;
+        transition: background-color 0.3s ease;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer p {
+        margin-bottom: 20px;
+        color: var(--color-text-light);
+        transition: color 0.3s ease;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .footer-links a {
+        color: var(--color-text);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--color-primary);
+      }
+
+      /* Add RGB variables calculated from primary color */
+      :root {
+        --color-primary-rgb: 63, 81, 181;
+      }
+      
+      [data-theme="dark"] {
+        --color-primary-rgb: 92, 107, 192;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .nav-wrapper {
+          gap: 10px;
+        }
+        
+        .nav {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background-color: var(--color-header-bg);
+          box-shadow: var(--box-shadow);
+          padding: 10px 0;
+        }
+        
+        .nav.active {
+          display: flex;
+        }
+        
+        .mobile-menu-toggle {
+          display: block;
+          font-size: 24px;
+          background: none;
+          border: none;
+          color: var(--color-text);
+          cursor: pointer;
+        }
+
+        .hero h2 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-section {
+          padding-left: 40px;
+        }
+
+        .timeline-header::before {
+          left: -30px;
+          width: 20px;
+          height: 20px;
+        }
+
+        .timeline-day::before {
+          left: -26px;
+          width: 8px;
+          height: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Путь Фулстек-Разработчика</h1>
+        <div class="nav-wrapper">
+          <button class="mobile-menu-toggle" aria-label="Меню" style="display: none;">☰</button>
+          <nav class="nav">
+            <a href="#home" class="nav-item active">Главная</a>
+            <a href="#beginner" class="nav-item">Начинающий</a>
+            <a href="#intermediate" class="nav-item">Средний</a>
+            <a href="#midlevel" class="nav-item">Продвинутый</a>
+            <a href="#advanced-roadmap" class="nav-item">День за Днём</a>
+          </nav>
+          <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="theme-switch-label">
+              <span class="theme-icon theme-icon-light">☀️</span>
+              <span class="theme-icon theme-icon-dark">🌙</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="hero">
+      <div class="container">
+        <h2>Ваш Пошаговый Путь к Становлению Фулстек-Разработчиком</h2>
+        <p>
+          От начинающего до профессионала среднего уровня - следуйте нашему
+          структурированному пути обучения, чтобы приобрести практические навыки
+          и начать свою карьеру в разработке
+        </p>
+        <div class="hero-buttons">
+          <a href="#beginner" class="btn btn-primary">Начать Обучение</a>
+          <a href="#advanced-roadmap" class="btn btn-outline"
+            >План День за Днём</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="beginner" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Начальный Уровень</h2>
+          <p>Начните свой путь с этих фундаментальных навыков</p>
+        </div>
+
+        <div class="roadmap-content">
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Основы HTML и CSS</h2>
+
+            <div class="roadmap-item">
+              <h3>Основы HTML</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите основные строительные блоки веб-страниц и документов.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
+                  <ul class="skills-list">
+                    <li>Структура HTML-документа и элементы</li>
+                    <li>
+                      Семантический HTML (заголовки, разделы, статьи и т.д.)
+                    </li>
+                    <li>Формы и элементы ввода</li>
+                    <li>Таблицы и списки</li>
+                    <li>Ссылки и навигация</li>
+                    <li>Изображения и мультимедиа</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Учебный проект:</h4>
+                  <p>
+                    Создайте страницу персонального портфолио с правильной
+                    структурой HTML
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Основы CSS</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Стилизуйте контент HTML с помощью каскадных таблиц стилей.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
+                  <ul class="skills-list">
+                    <li>CSS-селекторы и специфичность</li>
+                    <li>Блочная модель (margin, padding, border)</li>
+                    <li>Свойства отображения</li>
+                    <li>Цвета, фоны и градиенты</li>
+                    <li>Типографика и стилизация текста</li>
+                    <li>Базовые анимации и переходы</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Учебный проект:</h4>
+                  <p>
+                    Стилизуйте свою страницу портфолио с помощью CSS, чтобы она
+                    выглядела привлекательно
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Адаптивный дизайн</h3>
+              <div class="roadmap-item-content">
+                <p>Сделайте ваши веб-сайты красивыми на всех устройствах.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
+                  <ul class="skills-list">
+                    <li>Медиа-запросы</li>
+                    <li>Гибкие макеты с использованием процентов</li>
+                    <li>Flexbox</li>
+                    <li>Основы CSS Grid</li>
+                    <li>Подход к дизайну "Mobile-first"</li>
+                    <li>Адаптивные изображения и медиа</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Учебный проект:</h4>
+                  <p>
+                    Сделайте ваше портфолио адаптивным для разных размеров
+                    экрана
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Основы JavaScript</h2>
+
+            <div class="roadmap-item">
+              <h3>Основы JavaScript</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите основные концепции программирования на JavaScript.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
+                  <ul class="skills-list">
+                    <li>Переменные, типы данных и операторы</li>
+                    <li>Управление потоком (if/else, switch, циклы)</li>
+                    <li>Функции и область видимости</li>
+                    <li>Массивы и объекты</li>
+                    <li>Основы манипуляции DOM</li>
+                    <li>События и обработка событий</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Учебный проект:</h4>
+                  <p>
+                    Добавьте интерактивные элементы в ваше портфолио (например,
+                    галерею изображений, валидацию формы)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Манипуляция DOM</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Научитесь взаимодействовать с элементами веб-страницы и
+                  изменять их.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
+                  <ul class="skills-list">
+                    <li>Выбор элементов (querySelector, getElementById)</li>
+                    <li>Изменение содержимого (textContent, innerHTML)</li>
+                    <li>Изменение стилей и классов элементов</li>
+                    <li>Создание и удаление элементов</li>
+                    <li>Слушатели событий и обработчики</li>
+                    <li>Обработка форм и валидация</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Учебный проект:</h4>
+                  <p>
+                    Создайте динамическое приложение списка задач с JavaScript
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Работа с API</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Научитесь получать и использовать данные из внешних
+                  источников.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки для изучения:</h4>
+                  <ul class="skills-list">
+                    <li>HTTP-запросы и ответы</li>
+                    <li>Основы Fetch API</li>
+                    <li>Работа с данными JSON</li>
+                    <li>Концепции асинхронного программирования</li>
+                    <li>Обработка ошибок в API-запросах</li>
+                    <li>Отображение динамических данных на веб-странице</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Учебный проект:</h4>
+                  <p>
+                    Создайте приложение погоды, отображающее данные из
+                    публичного API
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Создание небольших проектов</h2>
+
+            <div class="roadmap-item">
+              <h3>Интерактивная форма</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Создайте форму с валидацией и интерактивной обратной связью.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Этапы обучения:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      Разработайте форму регистрации пользователя или контактную
+                      форму
+                    </li>
+                    <li>
+                      Реализуйте валидацию в реальном времени с JavaScript
+                    </li>
+                    <li>Добавьте визуальную обратную связь для ошибок формы</li>
+                    <li>Обрабатывайте отправку формы с помощью JavaScript</li>
+                    <li>Храните и отображайте данные формы</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Критерии успеха:</h4>
+                  <p>
+                    Полностью функциональная форма, которая проверяет ввод и
+                    дает обратную связь пользователю
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Интерактивная галерея</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Создайте галерею изображений с фильтрацией и функциональностью
+                  лайтбокса.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Этапы обучения:</h4>
+                  <ol class="skills-list">
+                    <li>Создайте адаптивную сетку изображений</li>
+                    <li>Реализуйте функцию фильтрации по категориям</li>
+                    <li>
+                      Добавьте лайтбокс для увеличенного просмотра изображений
+                    </li>
+                    <li>
+                      Реализуйте элементы управления навигацией в лайтбоксе
+                    </li>
+                    <li>Добавьте плавные анимации и переходы</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Критерии успеха:</h4>
+                  <p>
+                    Функциональная галерея, которая позволяет фильтровать и
+                    просматривать изображения в увеличенном виде
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intermediate" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Intermediate Level</h2>
+          <p>Expand your skills with more advanced concepts</p>
+        </div>
+
+        <div class="roadmap-content">
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Frontend Development</h2>
+
+            <div class="roadmap-item">
+              <h3>Advanced JavaScript</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Deepen your JavaScript knowledge with more complex concepts.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <ul class="skills-list">
+                    <li>
+                      ES6+ features (arrow functions, destructuring, etc.)
+                    </li>
+                    <li>Asynchronous JavaScript (Promises, async/await)</li>
+                    <li>Fetch API and AJAX</li>
+                    <li>Local storage and session storage</li>
+                    <li>JavaScript modules</li>
+                    <li>Error handling</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Project Milestone:</h4>
+                  <p>
+                    Build a weather app that fetches and displays data from an
+                    API
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>JavaScript Deep Dive</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Master advanced JavaScript concepts for professional
+                  development.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <ol class="skills-list">
+                    <li>Closures and lexical scope</li>
+                    <li>Prototypes and inheritance</li>
+                    <li>The 'this' keyword and execution context</li>
+                    <li>Higher-order functions and functional programming</li>
+                    <li>Design patterns in JavaScript</li>
+                    <li>Performance optimization techniques</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>
+                    Build a component-based UI library with reusable JavaScript
+                    modules
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Modern JavaScript Tools</h3>
+              <div class="roadmap-item-content">
+                <p>Learn essential tools in the modern JavaScript ecosystem.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <ol class="skills-list">
+                    <li>Setting up a build system with NPM scripts</li>
+                    <li>Module bundling with Webpack or Vite</li>
+                    <li>Transpiling code with Babel</li>
+                    <li>Linting with ESLint</li>
+                    <li>Testing with Jest or Mocha</li>
+                    <li>Understanding package.json and dependencies</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>
+                    Set up a complete frontend project with professional tooling
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>CSS Frameworks & Preprocessors</h3>
+              <div class="roadmap-item-content">
+                <p>Use tools to make CSS development more efficient.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <ul class="skills-list">
+                    <li>Bootstrap or Tailwind CSS</li>
+                    <li>SCSS/SASS</li>
+                    <li>CSS custom properties (variables)</li>
+                    <li>Advanced responsive design techniques</li>
+                    <li>CSS animations and transitions</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Project Milestone:</h4>
+                  <p>
+                    Rebuild your portfolio using a CSS framework or preprocessor
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Backend Basics</h2>
+
+            <div class="roadmap-item">
+              <h3>Introduction to Backend</h3>
+              <div class="roadmap-item-content">
+                <p>Learn the fundamentals of server-side programming.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <ul class="skills-list">
+                    <li>HTTP protocol basics</li>
+                    <li>Server-side vs. client-side</li>
+                    <li>Introduction to Node.js</li>
+                    <li>Basic routing with Express.js</li>
+                    <li>RESTful API concepts</li>
+                    <li>JSON data format</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Project Milestone:</h4>
+                  <p>Create a simple API with Express.js</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Node.js Fundamentals</h3>
+              <div class="roadmap-item-content">
+                <p>Build a strong foundation in server-side JavaScript.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <ol class="skills-list">
+                    <li>Understanding Node.js architecture and event loop</li>
+                    <li>Working with core modules (fs, path, http)</li>
+                    <li>Creating a basic web server</li>
+                    <li>Using npm to manage packages</li>
+                    <li>Asynchronous programming with Node.js</li>
+                    <li>Reading and writing files</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>
+                    Build a command-line application that processes data from
+                    files
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Express.js Framework</h3>
+              <div class="roadmap-item-content">
+                <p>Master the most popular Node.js web framework.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Step-by-Step Learning:</h4>
+                  <ol class="skills-list">
+                    <li>Setting up an Express application</li>
+                    <li>Routing and middleware concepts</li>
+                    <li>Handling different HTTP methods</li>
+                    <li>Request and response objects</li>
+                    <li>Serving static files</li>
+                    <li>Using template engines (EJS, Pug)</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>Create a blog platform with dynamic page rendering</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">
+              Building Intermediate Projects
+            </h2>
+
+            <div class="roadmap-item">
+              <h3>RESTful API</h3>
+              <div class="roadmap-item-content">
+                <p>Design and implement a complete REST API service.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Project Steps:</h4>
+                  <ol class="skills-list">
+                    <li>Design API endpoints following REST principles</li>
+                    <li>Implement CRUD operations</li>
+                    <li>Add validation and error handling</li>
+                    <li>Implement data persistence</li>
+                    <li>Document your API with Swagger/OpenAPI</li>
+                    <li>Test endpoints with Postman or similar tools</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Success Criteria:</h4>
+                  <p>
+                    A fully functional API that handles data operations with
+                    proper error handling
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Dashboard Application</h3>
+              <div class="roadmap-item-content">
+                <p>Create a data visualization dashboard using API data.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Project Steps:</h4>
+                  <ol class="skills-list">
+                    <li>Design a layout for different data displays</li>
+                    <li>Implement data fetching from one or more APIs</li>
+                    <li>Create chart visualizations with Chart.js or D3.js</li>
+                    <li>Add filtering and sorting capabilities</li>
+                    <li>Implement user settings and preferences</li>
+                    <li>Optimize for performance and responsiveness</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Success Criteria:</h4>
+                  <p>
+                    A dashboard that displays data in multiple formats with
+                    interactive controls
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="midlevel" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Mid-Level Skills</h2>
+          <p>
+            Master advanced techniques to become a proficient fullstack
+            developer
+          </p>
+        </div>
+
+        <div class="roadmap-content">
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Frontend Frameworks</h2>
+
+            <div class="roadmap-item">
+              <h3>React.js</h3>
+              <div class="roadmap-item-content">
+                <p>Learn the most popular frontend JavaScript library.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <ul class="skills-list">
+                    <li>Components and props</li>
+                    <li>State management</li>
+                    <li>Hooks (useState, useEffect, useContext)</li>
+                    <li>React Router</li>
+                    <li>Forms and controlled components</li>
+                    <li>Context API or Redux</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Project Milestone:</h4>
+                  <p>Build a task management application with React</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>React Step-by-Step</h3>
+              <div class="roadmap-item-content">
+                <p>Master React through incremental learning stages.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Learning Path:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      <strong>Stage 1:</strong> React basics - Setting up a
+                      project, JSX, components
+                    </li>
+                    <li>
+                      <strong>Stage 2:</strong> State and props - Managing data,
+                      component communication
+                    </li>
+                    <li>
+                      <strong>Stage 3:</strong> Lifecycle and hooks - Function
+                      components, useEffect
+                    </li>
+                    <li>
+                      <strong>Stage 4:</strong> Routing - Multiple pages,
+                      navigation, parameters
+                    </li>
+                    <li>
+                      <strong>Stage 5:</strong> Forms and validation - User
+                      input, controlled components
+                    </li>
+                    <li>
+                      <strong>Stage 6:</strong> API integration - Fetching data,
+                      loading states, error handling
+                    </li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Progressive Projects:</h4>
+                  <p>
+                    Build a React application that gradually incorporates new
+                    concepts with each stage
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>State Management</h3>
+              <div class="roadmap-item-content">
+                <p>Learn different approaches to managing application state.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Learning Path:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      <strong>Stage 1:</strong> Local component state -
+                      useState, useReducer
+                    </li>
+                    <li>
+                      <strong>Stage 2:</strong> Lifting state up - Parent-child
+                      state sharing
+                    </li>
+                    <li>
+                      <strong>Stage 3:</strong> Context API - Global state
+                      without additional libraries
+                    </li>
+                    <li>
+                      <strong>Stage 4:</strong> Redux - Actions, reducers,
+                      store, selectors
+                    </li>
+                    <li>
+                      <strong>Stage 5:</strong> Redux Toolkit - Simplified Redux
+                      patterns
+                    </li>
+                    <li>
+                      <strong>Stage 6:</strong> Server state - React Query, SWR,
+                      or Apollo Client
+                    </li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>
+                    Refactor an existing application to use different state
+                    management approaches
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Backend Development</h2>
+
+            <div class="roadmap-item">
+              <h3>Node.js & Express.js</h3>
+              <div class="roadmap-item-content">
+                <p>Build scalable backend applications with JavaScript.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <ul class="skills-list">
+                    <li>Express.js middleware</li>
+                    <li>Authentication and authorization</li>
+                    <li>Error handling and logging</li>
+                    <li>API development</li>
+                    <li>File uploads and storage</li>
+                    <li>Deployment to production</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Project Milestone:</h4>
+                  <p>
+                    Create a RESTful API with authentication for your task
+                    management app
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Authentication & Security</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Implement secure user authentication and authorization
+                  systems.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Learning Path:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      <strong>Stage 1:</strong> User registration and login with
+                      bcrypt password hashing
+                    </li>
+                    <li>
+                      <strong>Stage 2:</strong> JWT-based authentication flow
+                    </li>
+                    <li><strong>Stage 3:</strong> Role-based authorization</li>
+                    <li>
+                      <strong>Stage 4:</strong> OAuth and social login
+                      integration
+                    </li>
+                    <li>
+                      <strong>Stage 5:</strong> Security best practices (CSRF,
+                      XSS protection)
+                    </li>
+                    <li><strong>Stage 6:</strong> Two-factor authentication</li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>
+                    Implement a complete authentication system with multiple
+                    login options
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Databases</h3>
+              <div class="roadmap-item-content">
+                <p>Store and retrieve data effectively.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Key Skills to Learn:</h4>
+                  <ul class="skills-list">
+                    <li>SQL basics (PostgreSQL or MySQL)</li>
+                    <li>NoSQL concepts (MongoDB)</li>
+                    <li>Database design and relationships</li>
+                    <li>ORM/ODM (Sequelize, Mongoose)</li>
+                    <li>CRUD operations</li>
+                    <li>Data validation and sanitization</li>
+                  </ul>
+                </div>
+                <div class="milestone">
+                  <h4>Project Milestone:</h4>
+                  <p>
+                    Integrate a database with your task management application
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Database Mastery</h3>
+              <div class="roadmap-item-content">
+                <p>Deep dive into database technologies and optimization.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Learning Path:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      <strong>Stage 1:</strong> Database schema design and
+                      normalization
+                    </li>
+                    <li>
+                      <strong>Stage 2:</strong> Indexes and query optimization
+                    </li>
+                    <li>
+                      <strong>Stage 3:</strong> Transactions and data integrity
+                    </li>
+                    <li><strong>Stage 4:</strong> Database migrations</li>
+                    <li>
+                      <strong>Stage 5:</strong> Caching strategies (Redis)
+                    </li>
+                    <li>
+                      <strong>Stage 6:</strong> Scaling databases (replication,
+                      sharding)
+                    </li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Project Application:</h4>
+                  <p>
+                    Optimize an existing database for performance and implement
+                    advanced features
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Advanced Projects</h2>
+
+            <div class="roadmap-item">
+              <h3>Fullstack E-Commerce Platform</h3>
+              <div class="roadmap-item-content">
+                <p>Build a complete online store with multiple features.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Project Stages:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      <strong>Stage 1:</strong> Product catalog with filtering
+                      and search
+                    </li>
+                    <li>
+                      <strong>Stage 2:</strong> User authentication and profiles
+                    </li>
+                    <li>
+                      <strong>Stage 3:</strong> Shopping cart and checkout
+                      process
+                    </li>
+                    <li>
+                      <strong>Stage 4:</strong> Payment processing integration
+                    </li>
+                    <li>
+                      <strong>Stage 5:</strong> Order management and history
+                    </li>
+                    <li>
+                      <strong>Stage 6:</strong> Admin dashboard for product
+                      management
+                    </li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Success Criteria:</h4>
+                  <p>
+                    A functional e-commerce site with product browsing, user
+                    accounts, and checkout capabilities
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Social Media Application</h3>
+              <div class="roadmap-item-content">
+                <p>Create a platform for user content and interaction.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Project Stages:</h4>
+                  <ol class="skills-list">
+                    <li>
+                      <strong>Stage 1:</strong> User profiles and authentication
+                    </li>
+                    <li>
+                      <strong>Stage 2:</strong> Post creation and feed display
+                    </li>
+                    <li>
+                      <strong>Stage 3:</strong> Comments and interactions
+                      (likes, shares)
+                    </li>
+                    <li><strong>Stage 4:</strong> Friend/follow system</li>
+                    <li><strong>Stage 5:</strong> Real-time notifications</li>
+                    <li>
+                      <strong>Stage 6:</strong> Direct messaging between users
+                    </li>
+                  </ol>
+                </div>
+                <div class="milestone">
+                  <h4>Success Criteria:</h4>
+                  <p>
+                    A platform that allows content sharing, social interactions,
+                    and real-time communication
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advanced-roadmap" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Day-by-Day Roadmap</h2>
+          <p>A 12-week journey to becoming a fullstack developer</p>
+        </div>
+
+        <div class="timeline">
+          <!-- Week 1: HTML & CSS Fundamentals -->
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <h3>Week 1: HTML & CSS Fundamentals</h3>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 1-2: HTML Essentials</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Learn the core building blocks of web development starting
+                  with HTML.
+                </p>
+                <ul class="topics-list">
+                  <li>HTML document structure</li>
+                  <li>
+                    Semantic HTML elements (header, nav, main, section, article,
+                    footer)
+                  </li>
+                  <li>Text formatting tags and attributes</li>
+                  <li>Links, images, and media embedding</li>
+                  <li>Tables and forms</li>
+                  <li>HTML validation and best practices</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Create a personal profile page with proper semantic
+                    structure
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+                        target="_blank"
+                        >MDN Web Docs: HTML</a
+                      >
+                      - Comprehensive guide to HTML
+                    </li>
+                    <li>
+                      <a href="https://www.w3schools.com/html/" target="_blank"
+                        >W3Schools HTML Tutorial</a
+                      >
+                      - Interactive HTML tutorial
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 3-5: CSS Foundations</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Master the styling language to make your HTML look
+                  professional.
+                </p>
+                <ul class="topics-list">
+                  <li>CSS selectors and specificity</li>
+                  <li>Box model (margin, border, padding)</li>
+                  <li>Typography and text styling</li>
+                  <li>Colors, backgrounds, and gradients</li>
+                  <li>CSS units (px, em, rem, %, vh/vw)</li>
+                  <li>Browser developer tools for CSS debugging</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Style your personal profile page with a consistent color
+                    scheme and layout
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                        target="_blank"
+                        >MDN Web Docs: CSS</a
+                      >
+                      - Complete CSS reference
+                    </li>
+                    <li>
+                      <a href="https://css-tricks.com/" target="_blank"
+                        >CSS-Tricks</a
+                      >
+                      - Helpful CSS articles and guides
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 6-7: CSS Layout</h4>
+              </div>
+              <div class="day-content">
+                <p>Learn modern layout techniques to structure your pages.</p>
+                <ul class="topics-list">
+                  <li>Flexbox layout system</li>
+                  <li>CSS Grid for two-dimensional layouts</li>
+                  <li>Responsive design principles</li>
+                  <li>Media queries</li>
+                  <li>Mobile-first approach</li>
+                  <li>
+                    Common website layouts (blog, landing page, dashboard)
+                  </li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Create a responsive landing page with hero section, features
+                    grid, and testimonials
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a href="https://flexboxfroggy.com/" target="_blank"
+                        >Flexbox Froggy</a
+                      >
+                      - Game to learn Flexbox
+                    </li>
+                    <li>
+                      <a href="https://cssgridgarden.com/" target="_blank"
+                        >Grid Garden</a
+                      >
+                      - Interactive CSS Grid tutorial
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Week 2: JavaScript Basics -->
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <h3>Week 2: JavaScript Basics</h3>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 8-9: JavaScript Fundamentals</h4>
+              </div>
+              <div class="day-content">
+                <p>Master the basics of programming with JavaScript.</p>
+                <ul class="topics-list">
+                  <li>Variables, data types, and operators</li>
+                  <li>Control flow (if/else, switch, loops)</li>
+                  <li>Functions and scope</li>
+                  <li>Arrays and objects</li>
+                  <li>Error handling with try/catch</li>
+                  <li>JavaScript in the browser console</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>Create a calculator with basic arithmetic operations</p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a href="https://javascript.info/" target="_blank"
+                        >JavaScript.info</a
+                      >
+                      - Modern JavaScript tutorial
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+                        target="_blank"
+                        >freeCodeCamp JavaScript Course</a
+                      >
+                      - Interactive JS lessons
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 10-11: DOM Manipulation</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Learn to interact with and modify web page elements using
+                  JavaScript.
+                </p>
+                <ul class="topics-list">
+                  <li>
+                    Understanding the Document Object Model (DOM) structure
+                  </li>
+                  <li>
+                    Selecting elements with querySelector and getElementById
+                  </li>
+                  <li>Modifying element content and attributes</li>
+                  <li>Creating and removing elements dynamically</li>
+                  <li>Event listeners and handling user interactions</li>
+                  <li>Traversing the DOM tree (parents, children, siblings)</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Build a to-do list application with add, complete, and
+                    delete functionality
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction"
+                        target="_blank"
+                        >MDN: Introduction to the DOM</a
+                      >
+                      - Comprehensive guide to DOM
+                    </li>
+                    <li>
+                      <a href="https://javascript.info/document" target="_blank"
+                        >JavaScript.info: Document</a
+                      >
+                      - Interactive DOM manipulation tutorial
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 12-14: Working with Browser APIs</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Explore the browser's built-in APIs for enhanced
+                  functionality.
+                </p>
+                <ul class="topics-list">
+                  <li>
+                    Using localStorage and sessionStorage for data persistence
+                  </li>
+                  <li>Working with timers (setTimeout, setInterval)</li>
+                  <li>Handling forms and form validation</li>
+                  <li>Making HTTP requests with the Fetch API</li>
+                  <li>Working with JSON data</li>
+                  <li>Error handling in asynchronous operations</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Create a weather app that fetches data from a public API and
+                    stores user preferences
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+                        target="_blank"
+                        >MDN: Using the Fetch API</a
+                      >
+                      - Guide to making HTTP requests
+                    </li>
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API"
+                        target="_blank"
+                        >MDN: Using the Web Storage API</a
+                      >
+                      - Tutorial on localStorage
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Week 3: Advanced JavaScript & Frontend Development -->
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <h3>Week 3: Advanced JavaScript & Frontend Development</h3>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 15-16: Advanced JavaScript Concepts</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Deepen your JavaScript knowledge with more complex programming
+                  concepts.
+                </p>
+                <ul class="topics-list">
+                  <li>
+                    ES6+ features (arrow functions, template literals,
+                    destructuring)
+                  </li>
+                  <li>
+                    Higher-order functions and array methods (map, filter,
+                    reduce)
+                  </li>
+                  <li>Understanding 'this' keyword and lexical scope</li>
+                  <li>Closures and how they work</li>
+                  <li>Promises and asynchronous JavaScript</li>
+                  <li>async/await for cleaner asynchronous code</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Refactor an existing project using modern JavaScript syntax
+                    and features
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a href="https://javascript.info/async" target="_blank"
+                        >JavaScript.info: Async/await</a
+                      >
+                      - Guide to asynchronous programming
+                    </li>
+                    <li>
+                      <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions"
+                        target="_blank"
+                        >MDN: Arrow Functions</a
+                      >
+                      - Reference and examples
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 17-18: Responsive Web Design Techniques</h4>
+              </div>
+              <div class="day-content">
+                <p>Master advanced CSS for professional responsive layouts.</p>
+                <ul class="topics-list">
+                  <li>Flexbox for complex layouts</li>
+                  <li>CSS Grid for two-dimensional layout systems</li>
+                  <li>Advanced responsive design with media queries</li>
+                  <li>Mobile-first approach to CSS</li>
+                  <li>
+                    CSS custom properties (variables) for maintainable styling
+                  </li>
+                  <li>
+                    CSS animations and transitions for enhanced user experience
+                  </li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Create a responsive dashboard layout that adapts to
+                    different screen sizes
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                        target="_blank"
+                        >CSS-Tricks: A Complete Guide to Flexbox</a
+                      >
+                      - Comprehensive flexbox reference
+                    </li>
+                    <li>
+                      <a
+                        href="https://css-tricks.com/snippets/css/complete-guide-grid/"
+                        target="_blank"
+                        >CSS-Tricks: A Complete Guide to Grid</a
+                      >
+                      - Comprehensive grid reference
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 19-21: Modern CSS Frameworks</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Learn to use CSS frameworks to speed up development and create
+                  professional designs.
+                </p>
+                <ul class="topics-list">
+                  <li>Introduction to Bootstrap framework</li>
+                  <li>Utility-first approach with Tailwind CSS</li>
+                  <li>CSS preprocessors (SASS/SCSS)</li>
+                  <li>Customizing framework themes and variables</li>
+                  <li>Responsive components and layouts</li>
+                  <li>Building a design system with consistent styles</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Rebuild your portfolio site using a CSS framework of your
+                    choice
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+                        target="_blank"
+                        >Bootstrap Documentation</a
+                      >
+                      - Official guide to Bootstrap
+                    </li>
+                    <li>
+                      <a href="https://tailwindcss.com/docs" target="_blank"
+                        >Tailwind CSS Documentation</a
+                      >
+                      - Official guide to Tailwind
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Week 4: Frontend Frameworks & React Introduction -->
+          <div class="timeline-section">
+            <div class="timeline-header">
+              <h3>Week 4: Frontend Frameworks & React Introduction</h3>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 22-23: Introduction to Frontend Frameworks</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Learn about modern JavaScript frameworks and their role in web
+                  development.
+                </p>
+                <ul class="topics-list">
+                  <li>Understanding the need for frontend frameworks</li>
+                  <li>Overview of popular frameworks (React, Vue, Angular)</li>
+                  <li>Component-based architecture</li>
+                  <li>Virtual DOM and its advantages</li>
+                  <li>Single Page Applications (SPAs)</li>
+                  <li>Framework selection criteria for different projects</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Compare frameworks by building a simple component in each
+                    (React and Vue)
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://reactjs.org/docs/getting-started.html"
+                        target="_blank"
+                        >React Documentation</a
+                      >
+                      - Official React docs
+                    </li>
+                    <li>
+                      <a
+                        href="https://vuejs.org/guide/introduction.html"
+                        target="_blank"
+                        >Vue.js Documentation</a
+                      >
+                      - Official Vue.js docs
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 24-25: React Fundamentals</h4>
+              </div>
+              <div class="day-content">
+                <p>Master the basic concepts of React development.</p>
+                <ul class="topics-list">
+                  <li>Setting up a React project with Create React App</li>
+                  <li>JSX syntax and expressions</li>
+                  <li>Components and props</li>
+                  <li>State and lifecycle</li>
+                  <li>Event handling in React</li>
+                  <li>Conditional rendering and lists</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Build a task manager app with React components and state
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://reactjs.org/tutorial/tutorial.html"
+                        target="_blank"
+                        >React Tutorial</a
+                      >
+                      - Official React tutorial
+                    </li>
+                    <li>
+                      <a href="https://beta.reactjs.org/learn" target="_blank"
+                        >React Learn</a
+                      >
+                      - New React documentation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-day">
+              <div class="day-header">
+                <h4>Day 26-28: React Hooks and State Management</h4>
+              </div>
+              <div class="day-content">
+                <p>
+                  Deepen your React knowledge with hooks and state management.
+                </p>
+                <ul class="topics-list">
+                  <li>useState and useEffect hooks</li>
+                  <li>Custom hooks for reusable logic</li>
+                  <li>useContext for sharing state</li>
+                  <li>useReducer for complex state logic</li>
+                  <li>State management patterns</li>
+                  <li>Introduction to state management libraries</li>
+                </ul>
+                <div class="practice-project">
+                  <h5>Practice Project:</h5>
+                  <p>
+                    Enhance your task manager with context API and custom hooks
+                  </p>
+                </div>
+                <div class="day-resources">
+                  <h5>Learning Resources:</h5>
+                  <ul class="resources-list">
+                    <li>
+                      <a
+                        href="https://reactjs.org/docs/hooks-intro.html"
+                        target="_blank"
+                        >React Hooks Introduction</a
+                      >
+                      - Official React hooks documentation
+                    </li>
+                    <li>
+                      <a
+                        href="https://reactjs.org/docs/context.html"
+                        target="_blank"
+                        >React Context</a
+                      >
+                      - Official Context API documentation
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            &copy; 2025 FullStack Roadmap - Your guide to web development
+            mastery
+          </p>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#beginner">Beginner</a>
+            <a href="#intermediate">Intermediate</a>
+            <a href="#midlevel">Mid-Level</a>
+            <a href="#advanced-roadmap">Day-by-Day Roadmap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme switcher functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const themeToggle = document.getElementById("theme-toggle");
+        const body = document.documentElement;
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        if (savedTheme) {
+          body.setAttribute("data-theme", savedTheme);
+          themeToggle.checked = savedTheme === "dark";
+        } else if (prefersDark) {
+          body.setAttribute("data-theme", "dark");
+          themeToggle.checked = true;
+        }
+        
+        // Toggle theme on click
+        themeToggle.addEventListener("change", function() {
+          if (this.checked) {
+            body.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            body.setAttribute("data-theme", "light");
+            localStorage.setItem("theme", "light");
+          }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+        const nav = document.querySelector(".nav");
+        
+        if (mobileMenuToggle) {
+          mobileMenuToggle.addEventListener("click", function() {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // Simple JavaScript to make the roadmap items expandable
+        // Expand/collapse roadmap items
+        const roadmapItems = document.querySelectorAll(".roadmap-item h3");
+        roadmapItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const parent = this.parentElement;
+            parent.classList.toggle("expanded");
+          });
+        });
+
+        // Expand/collapse timeline days
+        const dayHeaders = document.querySelectorAll(".day-header");
+        dayHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            const parent = this.parentElement;
+            parent.classList.toggle("expanded");
+          });
+        });
+
+        // Open the first roadmap item in each section by default
+        const sections = document.querySelectorAll(".roadmap-section");
+        sections.forEach((section) => {
+          const firstItem = section.querySelector(".roadmap-item");
+          if (firstItem) {
+            firstItem.classList.add("expanded");
+          }
+        });
+
+        // Open the first day in each timeline section by default
+        const timelineSections = document.querySelectorAll(".timeline-section");
+        timelineSections.forEach((section) => {
+          const firstDay = section.querySelector(".timeline-day");
+          if (firstDay) {
+            firstDay.classList.add("expanded");
+          }
+        });
+
+        // Active navigation based on scroll
+        const pageNavSections = document.querySelectorAll("section");
+        const navItems = document.querySelectorAll(".nav-item");
+
+        window.addEventListener("scroll", function () {
+          let current = "";
+          const scrollPos = window.scrollY + 100;
+
+          pageNavSections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (
+              scrollPos >= sectionTop &&
+              scrollPos < sectionTop + sectionHeight
+            ) {
+              current = section.getAttribute("id");
+            }
+          });
+
+          navItems.forEach((item) => {
+            item.classList.remove("active");
+            if (item.getAttribute("href") === `#${current}`) {
+              item.classList.add("active");
+            }
+          });
+        });
+
+        // Add smooth scrolling for navigation links
+        const navLinks = document.querySelectorAll(".nav-item");
+        
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            // Get the target section id from the href
+            const targetId = this.getAttribute("href");
+
+            // Only process if it's an internal link
+            if (targetId.startsWith("#")) {
+              e.preventDefault();
+
+              const targetSection = document.querySelector(targetId);
+
+              if (targetSection) {
+                // Scroll to the target (scroll-padding-top CSS handles the offset)
+                targetSection.scrollIntoView({ behavior: "smooth" });
+
+                // Update active class on navigation items
+                navLinks.forEach((link) => link.classList.remove("active"));
+                this.classList.add("active");
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                  nav.classList.remove("active");
+                }
+              }
+            }
+          });
+        });
+        
+        // Show mobile menu toggle on smaller screens
+        function checkScreenSize() {
+          if (window.innerWidth <= 768) {
+            mobileMenuToggle.style.display = "block";
+          } else {
+            mobileMenuToggle.style.display = "none";
+            nav.classList.remove("active");
+          }
+        }
+        
+        // Initial check and listen for window resize
+        checkScreenSize();
+        window.addEventListener("resize", checkScreenSize);
+      });
+    </script>
+  </body>
+</html>
+
+      });
+    </script>
+  </body>
+</html>
