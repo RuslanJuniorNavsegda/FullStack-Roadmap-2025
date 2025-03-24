@@ -14,12 +14,12 @@
         <div class="nav-wrapper">
           <button
             class="mobile-menu-toggle"
-            aria-label="Меню"
-            style="display: none"
+            aria-label="Переключить меню"
+            aria-expanded="false"
           >
             ☰
           </button>
-          <nav class="nav">
+          <nav class="nav" aria-label="Основная навигация">
             <a href="#home" class="nav-item active">Главная</a>
             <a href="#beginner" class="nav-item">Начинающий</a>
             <a href="#intermediate" class="nav-item">Средний</a>
@@ -29,8 +29,12 @@
             <a href="#fullstack" class="nav-item">Fullstack</a>
             <a href="#advanced-roadmap" class="nav-item">День за Днём</a>
           </nav>
-          <label class="theme-switch">
-            <input type="checkbox" id="theme-toggle" />
+          <label class="theme-switch" title="Переключить тему">
+            <input
+              type="checkbox"
+              id="theme-toggle"
+              aria-label="Переключить светлую/тёмную тему"
+            />
             <span class="theme-switch-label">
               <span class="theme-icon theme-icon-light">☀️</span>
               <span class="theme-icon theme-icon-dark">🌙</span>

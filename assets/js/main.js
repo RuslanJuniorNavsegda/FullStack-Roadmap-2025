@@ -33,9 +33,42 @@ const nav = document.querySelector(".nav");
 
 if (mobileMenuToggle) {
   mobileMenuToggle.addEventListener("click", function () {
+    const isExpanded = nav.classList.contains("active");
     nav.classList.toggle("active");
+    this.setAttribute("aria-expanded", !isExpanded);
+
+    // If menu is now open, add event listener to close when clicking outside
+    if (!isExpanded) {
+      setTimeout(() => {
+        document.addEventListener("click", closeMenuOnClickOutside);
+      }, 10);
+    } else {
+      document.removeEventListener("click", closeMenuOnClickOutside);
+    }
   });
 }
+
+// Close menu when clicking outside
+function closeMenuOnClickOutside(e) {
+  if (
+    nav.classList.contains("active") &&
+    !nav.contains(e.target) &&
+    !mobileMenuToggle.contains(e.target)
+  ) {
+    nav.classList.remove("active");
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", closeMenuOnClickOutside);
+  }
+}
+
+// Close menu when pressing ESC key
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && nav.classList.contains("active")) {
+    nav.classList.remove("active");
+    mobileMenuToggle.setAttribute("aria-expanded", "false");
+    document.removeEventListener("click", closeMenuOnClickOutside);
+  }
+});
 
 // Initialize roadmap items - collapsed by default
 function initRoadmapItems() {
