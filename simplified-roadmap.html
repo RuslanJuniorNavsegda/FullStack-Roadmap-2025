@@ -4,804 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Путь Фулстек-Разработчика 2025</title>
-    <style>
-      /* Core styles */
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 70px; /* Match the header height */
-      }
-
-      :root {
-        /* Light theme (default) */
-        --color-primary: #3f51b5;
-        --color-primary-light: #757de8;
-        --color-primary-dark: #303f9f;
-        --color-secondary: #ff4081;
-        --color-text: #333333;
-        --color-text-light: #666666;
-        --color-background: #ffffff;
-        --color-background-alt: #f5f7fa;
-        --color-border: #e0e0e0;
-        --color-success: #4caf50;
-        --color-item-bg: #f5f7fa;
-        --color-header-bg: #ffffff;
-        --color-timeline-bg: #ffffff;
-        --color-footer-bg: #f8f9fa;
-        --color-shadow: rgba(0, 0, 0, 0.1);
-        --font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
-        --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        --timeline-color: var(--color-primary);
-        --timeline-bullet-color: var(--color-primary);
-        --border-radius: 8px;
-        --transition: all 0.3s ease;
-      }
-
-      [data-theme="dark"] {
-        --color-primary: #5c6bc0;
-        --color-primary-light: #8e99f3;
-        --color-primary-dark: #394096;
-        --color-secondary: #ff5c93;
-        --color-text: #e0e0e0;
-        --color-text-light: #b0b0b0;
-        --color-background: #121212;
-        --color-background-alt: #1e1e1e;
-        --color-border: #333333;
-        --color-success: #66bb6a;
-        --color-item-bg: #2d2d2d;
-        --color-header-bg: #1a1a1a;
-        --color-timeline-bg: #1e1e1e;
-        --color-footer-bg: #1a1a1a;
-        --color-shadow: rgba(0, 0, 0, 0.3);
-        --timeline-color: var(--color-primary);
-        --timeline-bullet-color: var(--color-primary);
-        --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: var(--font-family);
-        color: var(--color-text);
-        line-height: 1.5;
-        background-color: var(--color-background-alt);
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      /* Header */
-      .header {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70px;
-        background-color: var(--color-header-bg);
-        box-shadow: var(--box-shadow);
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .logo {
-        font-size: 24px;
-        font-weight: 700;
-        color: var(--color-primary);
-        transition: color 0.3s ease;
-      }
-
-      .nav-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .nav {
-        display: flex;
-        gap: 16px;
-      }
-
-      .nav-item {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--color-text);
-        padding: 8px 16px;
-        border-radius: 4px;
-        transition: var(--transition);
-        text-decoration: none;
-      }
-
-      .nav-item:hover {
-        background-color: rgba(var(--color-primary-rgb), 0.1);
-        color: var(--color-primary);
-      }
-
-      .nav-item.active {
-        color: var(--color-primary);
-        font-weight: 700;
-        background-color: rgba(var(--color-primary-rgb), 0.1);
-      }
-
-      /* Theme switcher */
-      .theme-switch {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        position: relative;
-        margin-left: 16px;
-      }
-
-      .theme-switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-
-      .theme-switch-label {
-        width: 50px;
-        height: 24px;
-        background-color: var(--color-background-alt);
-        border-radius: 24px;
-        position: relative;
-        display: inline-block;
-        transition: background-color 0.3s ease;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-      }
-
-      .theme-switch-label::after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: var(--color-primary);
-        top: 2px;
-        left: 2px;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-      }
-
-      .theme-switch input:checked + .theme-switch-label {
-        background-color: var(--color-primary-dark);
-      }
-
-      .theme-switch input:checked + .theme-switch-label::after {
-        transform: translateX(26px);
-        background-color: var(--color-primary-light);
-      }
-
-      .theme-icon {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 12px;
-        color: var(--color-text);
-        z-index: 1;
-      }
-
-      .theme-icon-light {
-        left: 7px;
-      }
-
-      .theme-icon-dark {
-        right: 6px;
-      }
-
-      /* Hero section */
-      .hero {
-        background: linear-gradient(
-          to right,
-          var(--color-primary-dark),
-          var(--color-primary)
-        );
-        color: white;
-        padding: 80px 0 60px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.1) 0%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        pointer-events: none;
-      }
-
-      .hero h2 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 16px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 32px;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        opacity: 0.9;
-      }
-
-      .hero-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
-        margin-top: 32px;
-      }
-
-      .btn {
-        display: inline-block;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-weight: 500;
-        text-align: center;
-        cursor: pointer;
-        transition: var(--transition);
-        font-size: 16px;
-        text-decoration: none;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .btn::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 5px;
-        height: 5px;
-        background: rgba(255, 255, 255, 0.3);
-        opacity: 0;
-        border-radius: 100%;
-        transform: scale(1, 1) translate(-50%);
-        transform-origin: 50% 50%;
-      }
-
-      .btn:hover::after {
-        animation: ripple 1s ease-out;
-      }
-
-      @keyframes ripple {
-        0% {
-          transform: scale(0, 0);
-          opacity: 0.5;
-        }
-        100% {
-          transform: scale(20, 20);
-          opacity: 0;
-        }
-      }
-
-      .btn-primary {
-        background-color: var(--color-secondary);
-        color: white;
-        box-shadow: 0 4px 6px rgba(255, 64, 129, 0.2);
-      }
-
-      .btn-primary:hover {
-        background-color: #e91e63;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 10px rgba(255, 64, 129, 0.3);
-      }
-
-      .btn-outline {
-        background-color: transparent;
-        color: white;
-        border: 2px solid white;
-      }
-
-      .btn-outline:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: white;
-        transform: translateY(-2px);
-      }
-
-      /* Section styles */
-      .section {
-        padding: 40px 0; /* Reduced from 60px */
-        transition: background-color 0.3s ease;
-      }
-
-      .section-header {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-
-      .section-header h2 {
-        font-size: 32px;
-        font-weight: 700;
-        color: var(--color-primary);
-        margin-bottom: 10px;
-        transition: color 0.3s ease;
-      }
-
-      .section-header p {
-        font-size: 18px;
-        color: var(--color-text-light);
-        max-width: 600px;
-        margin: 0 auto;
-        transition: color 0.3s ease;
-      }
-
-      /* Roadmap item styles */
-      .roadmap-content {
-        max-width: 900px;
-        margin: 0 auto;
-        background-color: var(--color-timeline-bg);
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-        padding: 20px; /* Reduced from 30px */
-        margin-top: 30px;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .roadmap-section {
-        margin-bottom: 30px; /* Reduced from 40px */
-      }
-
-      .roadmap-section:last-child {
-        margin-bottom: 0;
-      }
-
-      .roadmap-section-title {
-        font-size: 24px;
-        color: var(--color-primary);
-        font-weight: 700;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid var(--color-primary-light);
-        transition: color 0.3s ease, border-color 0.3s ease;
-      }
-
-      .roadmap-item {
-        margin-bottom: 20px; /* Reduced from 30px */
-        padding: 15px; /* Reduced from 20px */
-        background-color: var(--color-item-bg);
-        border-radius: var(--border-radius);
-        box-shadow: 0 2px 5px var(--color-shadow);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease,
-          transform 0.3s ease;
-      }
-
-      .roadmap-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 8px var(--color-shadow);
-      }
-
-      .roadmap-item h3 {
-        font-size: 20px;
-        color: var(--color-primary-dark);
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
-
-      .roadmap-item h3:hover {
-        color: var(--color-primary);
-      }
-
-      .roadmap-item h3::after {
-        content: "+";
-        margin-left: auto;
-        font-size: 20px;
-        transition: transform 0.3s ease;
-      }
-
-      .roadmap-item.expanded h3::after {
-        transform: rotate(45deg);
-      }
-
-      .roadmap-item-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-      }
-
-      .roadmap-item.expanded .roadmap-item-content {
-        max-height: 2000px; /* Increased from 1000px */
-      }
-
-      .skills-title {
-        font-size: 18px;
-        font-weight: 600;
-        margin: 15px 0 10px 0;
-        color: var(--color-text);
-        transition: color 0.3s ease;
-      }
-
-      .skills-list {
-        list-style-type: none;
-        margin-left: 10px;
-      }
-
-      .skills-list li {
-        padding: 5px 0 5px 25px;
-        position: relative;
-        transition: color 0.3s ease;
-      }
-
-      .skills-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 13px;
-        width: 8px;
-        height: 8px;
-        background-color: var(--color-primary);
-        border-radius: 50%;
-        transition: background-color 0.3s ease;
-      }
-
-      .milestone {
-        margin-top: 15px; /* Reduced from 20px */
-        padding: 10px; /* Reduced from 15px */
-        background-color: rgba(var(--color-primary-rgb), 0.05);
-        border-left: 4px solid var(--color-primary);
-        border-radius: 0 8px 8px 0;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-      }
-
-      .milestone h4 {
-        font-size: 16px;
-        color: var(--color-primary-dark);
-        margin-bottom: 10px;
-        transition: color 0.3s ease;
-      }
-
-      .milestone p {
-        margin: 0;
-        font-size: 15px;
-        transition: color 0.3s ease;
-      }
-
-      /* Timeline styles for advanced roadmap */
-      .timeline {
-        position: relative;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 20px 0; /* Reduced from 40px */
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 30px;
-        width: 4px;
-        background-color: var(--timeline-color);
-        border-radius: 2px;
-        transition: background-color 0.3s ease;
-      }
-
-      .timeline-section {
-        position: relative;
-        margin-bottom: 40px; /* Reduced from 60px */
-        padding-left: 60px;
-      }
-
-      .timeline-section:last-child {
-        margin-bottom: 0;
-      }
-
-      .timeline-header {
-        position: relative;
-        margin-bottom: 20px; /* Reduced from 30px */
-        background-color: var(--color-primary);
-        color: white;
-        padding: 15px 20px;
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .timeline-header::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: -45px;
-        width: 30px;
-        height: 30px;
-        background-color: var(--timeline-bullet-color);
-        border-radius: 50%;
-        transform: translateY(-50%);
-        box-shadow: var(--box-shadow);
-        z-index: 1;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .timeline-header h3 {
-        margin: 0;
-        font-size: 1.4rem;
-        font-weight: 700;
-      }
-
-      .timeline-day {
-        position: relative;
-        margin-bottom: 15px; /* Reduced from 20px */
-        background-color: var(--color-timeline-bg);
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-        overflow: hidden;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease,
-          transform 0.3s ease;
-      }
-
-      .timeline-day:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px var(--color-shadow);
-      }
-
-      .timeline-day::before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        left: -33px;
-        width: 12px;
-        height: 12px;
-        background-color: white;
-        border: 3px solid var(--timeline-bullet-color);
-        border-radius: 50%;
-        z-index: 1;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-      }
-
-      .day-header {
-        background-color: rgba(var(--color-primary-rgb), 0.1);
-        padding: 15px 20px;
-        cursor: pointer;
-        position: relative;
-        transition: background-color 0.3s ease;
-      }
-
-      .day-header h4 {
-        margin: 0;
-        font-size: 1.2rem;
-        color: var(--color-primary-dark);
-        transition: color 0.3s ease;
-      }
-
-      .day-content {
-        padding: 20px;
-        border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-      }
-
-      .timeline-day.expanded .day-content {
-        max-height: 2000px; /* Increased from 1000px */
-      }
-
-      .day-content p {
-        margin-top: 0;
-        margin-bottom: 15px;
-        transition: color 0.3s ease;
-      }
-
-      .topics-list {
-        list-style-type: none;
-        padding-left: 0;
-        margin-bottom: 20px;
-      }
-
-      .topics-list li {
-        position: relative;
-        padding: 6px 0 6px 25px;
-        margin-bottom: 6px;
-        transition: color 0.3s ease;
-      }
-
-      .topics-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 12px;
-        width: 8px;
-        height: 8px;
-        background-color: var(--color-primary);
-        border-radius: 50%;
-        transition: background-color 0.3s ease;
-      }
-
-      .practice-project {
-        background-color: rgba(var(--color-primary-rgb), 0.05);
-        border-left: 4px solid var(--color-primary);
-        padding: 15px;
-        border-radius: 0 4px 4px 0;
-        margin-top: 20px;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-      }
-
-      .practice-project h5 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        color: var(--color-primary-dark);
-        font-size: 1rem;
-        transition: color 0.3s ease;
-      }
-
-      .practice-project p {
-        margin: 0;
-        font-weight: 500;
-      }
-
-      .day-resources {
-        margin-top: 20px;
-        padding-top: 15px;
-        border-top: 1px solid rgba(var(--color-primary-rgb), 0.1);
-        transition: border-color 0.3s ease;
-      }
-
-      .day-resources h5 {
-        color: var(--color-primary-dark);
-        margin-bottom: 10px;
-        font-size: 1rem;
-        transition: color 0.3s ease;
-      }
-
-      .resources-list {
-        list-style-type: none;
-        padding-left: 0;
-      }
-
-      .resources-list li {
-        margin-bottom: 8px;
-        position: relative;
-        padding-left: 0;
-        transition: color 0.3s ease;
-      }
-
-      .resources-list a {
-        color: var(--color-primary);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-
-      .resources-list a:hover {
-        text-decoration: underline;
-        color: var(--color-primary-dark);
-      }
-
-      /* Footer */
-      .footer {
-        background-color: var(--color-footer-bg);
-        padding: 40px 0;
-        margin-top: 60px;
-        transition: background-color 0.3s ease;
-      }
-
-      .footer-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .footer p {
-        margin-bottom: 20px;
-        color: var(--color-text-light);
-        transition: color 0.3s ease;
-      }
-
-      .footer-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .footer-links a {
-        color: var(--color-text);
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .footer-links a:hover {
-        color: var(--color-primary);
-      }
-
-      /* Add RGB variables calculated from primary color */
-      :root {
-        --color-primary-rgb: 63, 81, 181;
-      }
-
-      [data-theme="dark"] {
-        --color-primary-rgb: 92, 107, 192;
-      }
-
-      /* Responsive styles */
-      @media (max-width: 768px) {
-        .nav-wrapper {
-          gap: 10px;
-        }
-
-        .nav {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 70px;
-          left: 0;
-          right: 0;
-          background-color: var(--color-header-bg);
-          box-shadow: var(--box-shadow);
-          padding: 10px 0;
-        }
-
-        .nav.active {
-          display: flex;
-        }
-
-        .mobile-menu-toggle {
-          display: block;
-          font-size: 24px;
-          background: none;
-          border: none;
-          color: var(--color-text);
-          cursor: pointer;
-        }
-
-        .hero h2 {
-          font-size: 2rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .timeline::before {
-          left: 20px;
-        }
-
-        .timeline-section {
-          padding-left: 40px;
-        }
-
-        .timeline-header::before {
-          left: -30px;
-          width: 20px;
-          height: 20px;
-        }
-
-        .timeline-day::before {
-          left: -26px;
-          width: 8px;
-          height: 8px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/main.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -820,6 +24,9 @@
             <a href="#beginner" class="nav-item">Начинающий</a>
             <a href="#intermediate" class="nav-item">Средний</a>
             <a href="#midlevel" class="nav-item">Продвинутый</a>
+            <a href="#frontend" class="nav-item">Frontend</a>
+            <a href="#backend" class="nav-item">Backend</a>
+            <a href="#fullstack" class="nav-item">Fullstack</a>
             <a href="#advanced-roadmap" class="nav-item">День за Днём</a>
           </nav>
           <label class="theme-switch">
@@ -2423,6 +1630,899 @@
       </div>
     </section>
 
+    <section id="frontend" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Frontend Разработчик</h2>
+          <p>
+            Детальная дорожная карта для frontend-разработчика на JavaScript
+          </p>
+        </div>
+
+        <div class="roadmap-content">
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Базовый уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>HTML5 и семантика</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте современную разметку HTML5 и семантические элементы.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Структура документа HTML5</li>
+                    <li>
+                      Семантические элементы (header, nav, section, article,
+                      aside, footer)
+                    </li>
+                    <li>Доступность и ARIA</li>
+                    <li>Формы и валидация</li>
+                    <li>SEO-оптимизация разметки</li>
+                    <li>Метаданные и Open Graph</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>CSS3 и современные возможности</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите продвинутые концепции CSS3 и современные подходы к
+                  стилизации.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Flexbox и Grid для построения сложных макетов</li>
+                    <li>CSS-переменные и кастомные свойства</li>
+                    <li>Препроцессоры (SASS/SCSS)</li>
+                    <li>CSS-анимации и переходы</li>
+                    <li>Медиа-запросы и отзывчивый дизайн</li>
+                    <li>CSS-фреймворки (Tailwind CSS, Bootstrap)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>JavaScript ES6+</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте современный JavaScript и его передовые возможности.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>
+                      Современный синтаксис (стрелочные функции,
+                      деструктуризация, шаблонные строки)
+                    </li>
+                    <li>Промисы и асинхронное программирование</li>
+                    <li>Async/await</li>
+                    <li>Модули ES6</li>
+                    <li>Манипуляция DOM</li>
+                    <li>Обработка событий</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Инструменты разработчика</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите инструменты для отладки и оптимизации frontend-кода.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>
+                      Chrome DevTools (Elements, Console, Network, Performance)
+                    </li>
+                    <li>Отладка JavaScript и CSS</li>
+                    <li>Аудит производительности и оптимизация</li>
+                    <li>Системы контроля версий (Git)</li>
+                    <li>NPM/Yarn</li>
+                    <li>Терминал и базовые команды</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Средний уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>React.js и экосистема</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте React и его экосистему для создания современных
+                  интерфейсов.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Функциональные компоненты и хуки</li>
+                    <li>Управление состоянием (useState, useReducer)</li>
+                    <li>Жизненный цикл компонентов (useEffect)</li>
+                    <li>Context API</li>
+                    <li>React Router</li>
+                    <li>Формы в React (Formik, React Hook Form)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Управление состоянием</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите продвинутые подходы к управлению состоянием
+                  приложения.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Redux и Redux Toolkit</li>
+                    <li>МobX</li>
+                    <li>Zustand</li>
+                    <li>Recoil</li>
+                    <li>Jotai/Valtio</li>
+                    <li>Паттерны управления состоянием</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>TypeScript</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Добавьте типизацию в ваши JavaScript-проекты с TypeScript.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Основы типизации</li>
+                    <li>Интерфейсы и типы</li>
+                    <li>Generics</li>
+                    <li>Utility Types</li>
+                    <li>TypeScript с React</li>
+                    <li>Настройка конфигурации TS</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Тестирование</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь писать тесты для вашего frontend-кода.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Jest для модульного тестирования</li>
+                    <li>React Testing Library</li>
+                    <li>Cypress для E2E тестирования</li>
+                    <li>Мокирование и стабы</li>
+                    <li>Тестирование хуков и состояния</li>
+                    <li>TDD-подход к разработке</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Продвинутый уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>Архитектура frontend-приложений</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите продвинутые архитектурные подходы к строению
+                  frontend-приложений.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Компонентная архитектура</li>
+                    <li>Atomic Design</li>
+                    <li>Чистая архитектура на frontend</li>
+                    <li>SOLID-принципы</li>
+                    <li>Микрофронтенды</li>
+                    <li>Паттерны проектирования</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Оптимизация производительности</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Научитесь оптимизировать производительность
+                  frontend-приложений.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Метрики Web Vitals</li>
+                    <li>Профилирование и отладка производительности</li>
+                    <li>
+                      Оптимизация рендеринга React (memo, useMemo, useCallback)
+                    </li>
+                    <li>Оптимизация загрузки ресурсов</li>
+                    <li>Ленивая загрузка и разделение кода</li>
+                    <li>Оптимизация изображений и медиа</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Продвинутые веб-технологии</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте современные API и технологии для создания насыщенных
+                  веб-приложений.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>WebSockets для real-time приложений</li>
+                    <li>Service Workers и Progressive Web Apps</li>
+                    <li>WebAssembly</li>
+                    <li>Canvas и WebGL</li>
+                    <li>Web Audio API</li>
+                    <li>Intersection Observer API</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Интернационализация и доступность</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Сделайте ваши приложения доступными для всех пользователей.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Интернационализация (i18n) с React-intl или i18next</li>
+                    <li>Стандарты доступности WCAG</li>
+                    <li>Тестирование доступности</li>
+                    <li>Клавиатурная навигация</li>
+                    <li>Правильное использование ARIA</li>
+                    <li>Контрастность и цветовая палитра</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="backend" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Backend Разработчик</h2>
+          <p>Детальная дорожная карта для backend-разработчика на JavaScript</p>
+        </div>
+
+        <div class="roadmap-content">
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Базовый уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>Основы Node.js</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите основы серверной разработки на JavaScript с Node.js.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Модульная система Node.js</li>
+                    <li>Событийный цикл и асинхронность</li>
+                    <li>Файловая система и потоки данных</li>
+                    <li>Буферы и типизированные массивы</li>
+                    <li>Управление пакетами с npm</li>
+                    <li>Управление процессами</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Express.js</h3>
+              <div class="roadmap-item-content">
+                <p>Освойте популярный фреймворк для создания веб-серверов.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Маршрутизация и обработка запросов</li>
+                    <li>Промежуточное ПО (middleware)</li>
+                    <li>Шаблонизаторы (EJS, Pug)</li>
+                    <li>Обработка статических файлов</li>
+                    <li>Обработка ошибок</li>
+                    <li>Структурирование Express-приложений</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>REST API</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь создавать RESTful API для вашего бэкенда.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Принципы REST</li>
+                    <li>Методы HTTP и коды статуса</li>
+                    <li>Маршрутизация ресурсов</li>
+                    <li>Форматирование ответов (JSON)</li>
+                    <li>Проектирование API</li>
+                    <li>Документирование API (Swagger/OpenAPI)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>База данных MongoDB и Mongoose</h3>
+              <div class="roadmap-item-content">
+                <p>Изучите работу с NoSQL базой данных MongoDB.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Основы MongoDB (коллекции, документы)</li>
+                    <li>CRUD-операции</li>
+                    <li>Mongoose ORM</li>
+                    <li>Схемы и модели</li>
+                    <li>Валидация данных</li>
+                    <li>Индексирование и агрегации</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Аутентификация и авторизация</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь обеспечивать безопасность ваших приложений.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>JWT-токены</li>
+                    <li>Хеширование паролей с bcrypt</li>
+                    <li>Сессии и куки</li>
+                    <li>OAuth и социальная аутентификация</li>
+                    <li>Контроль доступа на основе ролей</li>
+                    <li>Защита от распространенных атак</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Средний уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>SQL и реляционные базы данных</h3>
+              <div class="roadmap-item-content">
+                <p>Освойте работу с реляционными базами данных.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>PostgreSQL/MySQL</li>
+                    <li>SQL-запросы и транзакции</li>
+                    <li>Индексы и оптимизация запросов</li>
+                    <li>Отношения между таблицами</li>
+                    <li>Миграции и управление схемой</li>
+                    <li>Резервное копирование и восстановление</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>ORM и работа с базами данных</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Используйте современные инструменты для работы с базами
+                  данных.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Sequelize для SQL-баз</li>
+                    <li>Prisma</li>
+                    <li>TypeORM</li>
+                    <li>Отношения и ассоциации</li>
+                    <li>Миграции с использованием ORM</li>
+                    <li>Генерация схем и типов</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>GraphQL</h3>
+              <div class="roadmap-item-content">
+                <p>Освойте современный подход к построению API с GraphQL.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Схемы GraphQL</li>
+                    <li>Резолверы</li>
+                    <li>Apollo Server</li>
+                    <li>Запросы, мутации и подписки</li>
+                    <li>Директивы и валидация</li>
+                    <li>Batching и N+1 проблема</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Микросервисы</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите архитектуру микросервисов для создания масштабируемых
+                  приложений.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Принципы микросервисной архитектуры</li>
+                    <li>Коммуникация между сервисами</li>
+                    <li>API Gateway</li>
+                    <li>Управление состоянием в микросервисах</li>
+                    <li>Обработка ошибок и отказоустойчивость</li>
+                    <li>Распределенное логирование и трассировка</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Тестирование</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь писать надежные тесты для вашего бэкенда.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Модульное тестирование с Jest/Mocha</li>
+                    <li>Интеграционное тестирование</li>
+                    <li>Тестирование API с Supertest</li>
+                    <li>Мокирование баз данных и внешних сервисов</li>
+                    <li>TDD и BDD подходы</li>
+                    <li>Тестовое покрытие и анализ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Продвинутый уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>Docker и контейнеризация</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте контейнеризацию для упрощения развертывания и
+                  масштабирования.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Основы Docker</li>
+                    <li>Dockerfile и образы</li>
+                    <li>Docker Compose</li>
+                    <li>Сети и тома Docker</li>
+                    <li>Оркестрация контейнеров (основы Kubernetes)</li>
+                    <li>Многоэтапные сборки</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>CI/CD и DevOps</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Изучите современные практики непрерывной интеграции и
+                  доставки.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>CI/CD пайплайны (GitHub Actions, GitLab CI)</li>
+                    <li>Автоматизация тестирования и деплоя</li>
+                    <li>Управление средами (dev, staging, prod)</li>
+                    <li>Infrastructure as Code</li>
+                    <li>Мониторинг и логирование</li>
+                    <li>Управление секретами и конфигурациями</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Облачные сервисы</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Научитесь использовать облачные платформы для размещения ваших
+                  приложений.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>AWS (EC2, S3, Lambda, DynamoDB)</li>
+                    <li>Azure или Google Cloud Platform</li>
+                    <li>Serverless функции</li>
+                    <li>Управление сетевой инфраструктурой</li>
+                    <li>Масштабирование и высокая доступность</li>
+                    <li>Оптимизация затрат на облако</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Безопасность</h3>
+              <div class="roadmap-item-content">
+                <p>Изучите продвинутые аспекты безопасности веб-приложений.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>OWASP Top 10 угроз</li>
+                    <li>Защита от XSS, CSRF, инъекций</li>
+                    <li>Аудит зависимостей и уязвимостей</li>
+                    <li>Безопасность API</li>
+                    <li>Шифрование данных</li>
+                    <li>Соответствие требованиям (GDPR, PCI DSS)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Мониторинг и логирование</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Научитесь отслеживать производительность и состояние ваших
+                  приложений.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>ELK стек (Elasticsearch, Logstash, Kibana)</li>
+                    <li>Prometheus и Grafana</li>
+                    <li>Распределенная трассировка</li>
+                    <li>Оповещения и автоматические реакции</li>
+                    <li>Анализ производительности</li>
+                    <li>Logrotate и управление журналами</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fullstack" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Fullstack Разработчик</h2>
+          <p>
+            Детальная дорожная карта для fullstack-разработчика на JavaScript
+          </p>
+        </div>
+
+        <div class="roadmap-content">
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Базовый уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>Основы Frontend и Backend</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте ключевые навыки как frontend, так и backend
+                  разработки.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>HTML5, CSS3 и JavaScript</li>
+                    <li>Основы Node.js и Express</li>
+                    <li>REST API</li>
+                    <li>Основы баз данных (MongoDB и основы SQL)</li>
+                    <li>Базовая аутентификация</li>
+                    <li>Деплой простых приложений</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Контроль версий и инструменты разработки</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте инструменты для эффективной коллективной разработки.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Git и GitHub/GitLab</li>
+                    <li>Ветвление и стратегии слияния</li>
+                    <li>Pull-запросы и код-ревью</li>
+                    <li>Непрерывная интеграция (основы)</li>
+                    <li>Jira/Trello для управления задачами</li>
+                    <li>Документирование кода</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Архитектура клиент-сервер</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Поймите основные принципы взаимодействия клиента и сервера.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Модель клиент-сервер</li>
+                    <li>Протокол HTTP/HTTPS</li>
+                    <li>API-интерфейсы</li>
+                    <li>Управление сессиями</li>
+                    <li>Обмен данными в формате JSON</li>
+                    <li>CORS и безопасность</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Полный цикл разработки</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь создавать приложения от идеи до деплоя.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Анализ требований</li>
+                    <li>Проектирование архитектуры</li>
+                    <li>Разработка frontend и backend</li>
+                    <li>Тестирование основных компонентов</li>
+                    <li>Деплой на хостинг/облако</li>
+                    <li>Базовое обслуживание приложения</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Средний уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>MERN/MEAN стек</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте популярные JavaScript-стеки для fullstack-разработки.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>MongoDB/MySQL</li>
+                    <li>Express.js</li>
+                    <li>React.js/Angular</li>
+                    <li>Node.js</li>
+                    <li>Архитектура MVC</li>
+                    <li>REST и GraphQL API</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Server-side Rendering</h3>
+              <div class="roadmap-item-content">
+                <p>Изучите подходы к рендерингу на стороне сервера.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Next.js для React</li>
+                    <li>Nuxt.js для Vue</li>
+                    <li>SSR vs SSG vs CSR</li>
+                    <li>Hydration и клиентская гидратация</li>
+                    <li>SEO-оптимизация</li>
+                    <li>Оптимизация производительности</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Аутентификация и авторизация</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Реализуйте комплексную систему аутентификации в
+                  fullstack-приложениях.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>JWT и управление токенами</li>
+                    <li>OAuth2 и OpenID Connect</li>
+                    <li>Многофакторная аутентификация</li>
+                    <li>Управление пользовательскими ролями</li>
+                    <li>Безопасность и хранение паролей</li>
+                    <li>Сессии и куки</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Интеграция с внешними API</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь работать с внешними сервисами и API.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>REST и GraphQL клиенты</li>
+                    <li>Обработка OAuth в приложениях</li>
+                    <li>Управление API-ключами</li>
+                    <li>Webhook-интеграции</li>
+                    <li>Обработка ошибок и отказоустойчивость</li>
+                    <li>Кэширование запросов</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Загрузка и обработка файлов</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Реализуйте функционал работы с файлами в ваших приложениях.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Загрузка файлов на сервер</li>
+                    <li>Хранение в файловой системе и облачных хранилищах</li>
+                    <li>Обработка изображений</li>
+                    <li>Потоковая передача данных</li>
+                    <li>Безопасность загружаемых файлов</li>
+                    <li>Оптимизация медиа-контента</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-section">
+            <h2 class="roadmap-section-title">Продвинутый уровень</h2>
+
+            <div class="roadmap-item">
+              <h3>Serverless архитектура</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте современный подход к разработке без управления
+                  серверами.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>AWS Lambda/Azure Functions/Cloud Functions</li>
+                    <li>Serverless Framework</li>
+                    <li>API Gateway</li>
+                    <li>Бессерверные базы данных</li>
+                    <li>Управление состоянием в serverless</li>
+                    <li>Оптимизация холодных стартов</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Real-time приложения</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Создавайте приложения с обменом данными в реальном времени.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>WebSockets</li>
+                    <li>Socket.io</li>
+                    <li>WebRTC для видео/аудио</li>
+                    <li>Server-Sent Events</li>
+                    <li>Масштабирование real-time приложений</li>
+                    <li>Оптимизация производительности</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Web3 и Blockchain</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Освойте децентрализованную разработку и технологии блокчейн.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Смарт-контракты (Solidity)</li>
+                    <li>Интеграция с Web3.js/Ethers.js</li>
+                    <li>Взаимодействие с блокчейн-сетями</li>
+                    <li>Децентрализованное хранение (IPFS)</li>
+                    <li>NFT и токены (ERC-20, ERC-721)</li>
+                    <li>Безопасность dApps</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Многопользовательские приложения</h3>
+              <div class="roadmap-item-content">
+                <p>
+                  Создавайте сложные приложения с большим количеством
+                  пользователей.
+                </p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Управление конкурентным доступом</li>
+                    <li>Системы нотификаций</li>
+                    <li>Обработка действий пользователей в реальном времени</li>
+                    <li>Масштабирование и высокая доступность</li>
+                    <li>Кэширование и оптимизация производительности</li>
+                    <li>Безопасность многопользовательских систем</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="roadmap-item">
+              <h3>Аналитика и оптимизация</h3>
+              <div class="roadmap-item-content">
+                <p>Научитесь анализировать и улучшать ваши приложения.</p>
+                <div class="skills-container">
+                  <h4 class="skills-title">Ключевые навыки:</h4>
+                  <ul class="skills-list">
+                    <li>Сбор метрик и аналитика</li>
+                    <li>A/B тестирование</li>
+                    <li>Профилирование и оптимизация производительности</li>
+                    <li>Мониторинг пользовательского опыта</li>
+                    <li>Масштабирование при росте нагрузки</li>
+                    <li>Бизнес-аналитика и отчетность</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -2435,144 +2535,13 @@
             <a href="#beginner">Начинающий</a>
             <a href="#intermediate">Средний</a>
             <a href="#midlevel">Продвинутый</a>
+            <a href="#frontend">Frontend</a>
+            <a href="#backend">Backend</a>
+            <a href="#fullstack">Fullstack</a>
             <a href="#advanced-roadmap">День за Днём</a>
           </div>
         </div>
       </div>
     </footer>
-
-    <script>
-      // Theme switcher functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        const themeToggle = document.getElementById("theme-toggle");
-        const body = document.documentElement;
-
-        // Check for saved theme preference or use preferred color scheme
-        const savedTheme = localStorage.getItem("theme");
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        if (savedTheme) {
-          body.setAttribute("data-theme", savedTheme);
-          themeToggle.checked = savedTheme === "dark";
-        } else if (prefersDark) {
-          body.setAttribute("data-theme", "dark");
-          themeToggle.checked = true;
-        }
-
-        // Toggle theme on click
-        themeToggle.addEventListener("change", function () {
-          if (this.checked) {
-            body.setAttribute("data-theme", "dark");
-            localStorage.setItem("theme", "dark");
-          } else {
-            body.setAttribute("data-theme", "light");
-            localStorage.setItem("theme", "light");
-          }
-        });
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-        const nav = document.querySelector(".nav");
-
-        if (mobileMenuToggle) {
-          mobileMenuToggle.addEventListener("click", function () {
-            nav.classList.toggle("active");
-          });
-        }
-
-        // Expand/collapse roadmap items
-        const roadmapItems = document.querySelectorAll(".roadmap-item h3");
-        roadmapItems.forEach((item) => {
-          item.addEventListener("click", function () {
-            const parent = this.parentElement;
-            parent.classList.toggle("expanded");
-          });
-        });
-
-        // Expand/collapse timeline days
-        const dayHeaders = document.querySelectorAll(".day-header");
-        dayHeaders.forEach((header) => {
-          header.addEventListener("click", function () {
-            const parent = this.parentElement;
-            parent.classList.toggle("expanded");
-          });
-        });
-
-        // Active navigation based on scroll
-        const pageNavSections = document.querySelectorAll("section");
-        const navItems = document.querySelectorAll(".nav-item");
-
-        window.addEventListener("scroll", function () {
-          let current = "";
-          const scrollPos = window.scrollY + 100;
-
-          pageNavSections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-
-            if (
-              scrollPos >= sectionTop &&
-              scrollPos < sectionTop + sectionHeight
-            ) {
-              current = section.getAttribute("id");
-            }
-          });
-
-          navItems.forEach((item) => {
-            item.classList.remove("active");
-            if (item.getAttribute("href") === `#${current}`) {
-              item.classList.add("active");
-            }
-          });
-        });
-
-        // Add smooth scrolling for navigation links
-        const navLinks = document.querySelectorAll(".nav-item");
-
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function (e) {
-            // Get the target section id from the href
-            const targetId = this.getAttribute("href");
-
-            // Only process if it's an internal link
-            if (targetId.startsWith("#")) {
-              e.preventDefault();
-
-              const targetSection = document.querySelector(targetId);
-
-              if (targetSection) {
-                // Scroll to the target (scroll-padding-top CSS handles the offset)
-                targetSection.scrollIntoView({ behavior: "smooth" });
-
-                // Update active class on navigation items
-                navLinks.forEach((link) => link.classList.remove("active"));
-                this.classList.add("active");
-
-                // Close mobile menu if open
-                if (window.innerWidth <= 768) {
-                  nav.classList.remove("active");
-                }
-              }
-            }
-          });
-        });
-
-        // Show mobile menu toggle on smaller screens
-        function checkScreenSize() {
-          if (window.innerWidth <= 768) {
-            mobileMenuToggle.style.display = "block";
-          } else {
-            mobileMenuToggle.style.display = "none";
-            nav.classList.remove("active");
-          }
-        }
-
-        // Initial check and listen for window resize
-        checkScreenSize();
-        window.addEventListener("resize", checkScreenSize);
-      });
-    </script>
   </body>
 </html>
